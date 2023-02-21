@@ -1,0 +1,599 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.hover-bg:hover {
+  background-color: rgb(34, 34, 41);
+  color: white;
+  border-radius: 50%;
+}
+
+.logo-nav {
+  width: 17%;
+  background-color: white;
+  height: 100% !important;
+}
+
+.search-btn {
+  position: absolute;
+  right: 3%;
+  top: 40%;
+  color: white;
+}
+
+.font-s {
+  font-size: 0.38cm;
+}
+
+.header-img {
+  background-image: url(/assets/img/bg.webp);
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 520px;
+}
+.header-img .logo-div {
+  margin: auto;
+  padding-top: 50px;
+  width: 50%;
+}
+.header-img .logo-div .logo {
+  background-image: url(/assets/img/saleLogo2.webp);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 35%;
+  width: 100%;
+  border-radius: 100%;
+  height: 220px;
+}
+.header-img .logo-div .title {
+  font-style: italic;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 3.3rem;
+}
+
+.dropbtn {
+  color: white;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown .dropdown-content {
+  top: 40px;
+  display: none;
+  position: absolute;
+  background-color: rgb(231, 227, 227);
+  min-width: 360px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.dropdown .dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: smaller;
+}
+
+.dropdown-content a:hover {
+  text-decoration: underline;
+  background-color: lightblue;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.activity div {
+  width: 10% !important;
+}
+
+.w-90 {
+  width: 90%;
+}
+
+.text-div {
+  margin-left: 12%;
+  margin-top: 8%;
+}
+.text-div .blue-title {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bolder;
+  margin-bottom: 3%;
+}
+.text-div .subtitle-1 {
+  font-weight: bolder;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.text-div .subtitle-2 {
+  font-weight: bolder;
+  font-size: 0.8rem;
+}
+
+.img-div {
+  background-image: url(/assets/img/home.bg2.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+.img-div h1 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 3.2rem;
+}
+.img-div h6 {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-weight: bolder;
+}
+.img-div p {
+  font-size: 0.9rem;
+}
+
+.contact {
+  font-weight: bolder;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 0.9rem;
+}
+
+.w-20 {
+  width: 20%;
+}
+
+.w-49 {
+  width: 49%;
+}
+
+.feature p {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 1.4rem;
+  position: absolute;
+  top: 82%;
+}
+.feature a {
+  font-size: 0.9rem;
+  position: absolute;
+  top: 89%;
+}
+
+footer {
+  height: 480px;
+}
+footer a {
+  font-size: 0.8rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  letter-spacing: 0.01rem;
+}
+footer p {
+  font-size: 0.9rem;
+}
+footer .txt-last {
+  font-size: 0.8rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.w-35 {
+  width: 35%;
+}
+
+.w-45 {
+  width: 45%;
+}
+
+#btn-back-to-top {
+  position: fixed;
+  bottom: 60px;
+  right: 20px;
+  display: none;
+  background-color: rgb(231, 231, 231);
+}
+
+.feature-div {
+  background-color: grey !important;
+}
+
+@media (max-width: 575.98px) {
+  .first {
+    display: none;
+  }
+  .second .logo-nav {
+    display: none;
+  }
+  .second .src-input {
+    margin-bottom: 20px;
+  }
+  .second .search-btn {
+    display: none;
+  }
+  .second .mobile-icons {
+    display: block !important;
+  }
+  .second .mobile-brand {
+    display: block !important;
+  }
+  footer {
+    height: 700px;
+    width: 100%;
+  }
+  footer .footer-div .first-f {
+    display: none !important;
+  }
+  .contact {
+    display: none !important;
+  }
+  .header-img {
+    background-image: url(/assets/img/bg.webp);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 140px;
+  }
+  .header-img .logo-div {
+    margin: auto;
+    padding-top: 10px;
+    width: 80%;
+  }
+  .header-img .logo-div .logo {
+    background-image: url(/assets/img/saleLogo2.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 35%;
+    width: 40%;
+    border-radius: 100%;
+    height: 70px;
+  }
+  .header-img .logo-div .title {
+    font-style: italic;
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-size: 1rem;
+  }
+  .header-img .logo-div h6 {
+    font-size: 0.7rem;
+  }
+  .categories .card-group {
+    display: flex;
+    align-content: space-around !important;
+    flex-wrap: wrap;
+  }
+  .categories .card-group .card {
+    width: 80% !important;
+  }
+  .feature p {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-size: 0.7rem;
+    position: absolute;
+    top: 80%;
+  }
+  .feature a {
+    font-size: 0.5rem;
+    position: absolute;
+    top: 89%;
+  }
+  .text-div {
+    margin-left: 12%;
+    margin-top: 8%;
+  }
+  .text-div .blue-title {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+    margin-bottom: 3%;
+    font-size: 1.1rem;
+  }
+  .text-div .subtitle-1 {
+    font-size: 0.7rem;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  }
+  .text-div .subtitle-2 {
+    font-weight: bolder;
+    font-size: 0.5rem;
+  }
+  .carousel-inner .card {
+    width: 10rem;
+    margin-bottom: 10px;
+  }
+  .img-div {
+    background-image: url(/assets/img/home.bg2.jpg);
+    background-repeat: repeat;
+    background-position: center;
+    background-size: 100%;
+  }
+  .img-div .card-body {
+    display: none !important;
+  }
+  .img-div .card {
+    width: 9rem !important;
+    margin-bottom: 10px;
+  }
+  .img-div h1 {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-size: 1.5rem;
+  }
+  .img-div h6 {
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    font-weight: bolder;
+  }
+  .img-div p {
+    font-size: 0.9rem;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.99px) {
+  .first {
+    display: none;
+  }
+  .second .logo-nav {
+    display: none;
+  }
+  .second .src-input {
+    margin-bottom: 20px;
+  }
+  .second .search-btn {
+    display: none;
+  }
+  .second .mobile-icons {
+    display: block !important;
+  }
+  .second .mobile-brand {
+    display: block !important;
+  }
+  footer {
+    height: 550px;
+    width: 100%;
+  }
+  footer .footer-div .first-f {
+    display: none !important;
+  }
+  .contact {
+    display: none !important;
+  }
+  .header-img {
+    background-image: url(/assets/img/bg.webp);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    max-height: 250px;
+  }
+  .header-img .logo-div {
+    margin: auto;
+    width: 50%;
+  }
+  .header-img .logo-div .logo {
+    background-image: url(/assets/img/saleLogo2.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 35%;
+    width: 60%;
+    border-radius: 100%;
+    height: 80px;
+    margin-bottom: 30px;
+  }
+  .header-img .logo-div .title {
+    font-style: italic;
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-size: 1.2rem;
+  }
+  .header-img .logo-div h6 {
+    font-size: 0.8rem;
+  }
+  .feature p {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-size: 1.2rem;
+    position: absolute;
+    top: 78%;
+  }
+  .feature a {
+    font-size: 0.7rem;
+    position: absolute;
+    top: 89%;
+  }
+  .carousel-inner .card {
+    width: 15rem !important;
+    margin-bottom: 10px;
+  }
+  .img-div {
+    background-image: url(/assets/img/home.bg2.jpg);
+    background-repeat: repeat;
+    background-position: center;
+    background-size: 100%;
+  }
+  .img-div .card {
+    width: 9rem !important;
+    margin-bottom: 10px;
+  }
+  .img-div h1 {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-size: 1.8rem;
+  }
+  .img-div h6 {
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    font-weight: bolder;
+    font-size: 0.8rem;
+  }
+  .img-div p {
+    font-size: 0.6rem;
+  }
+  .img-div a {
+    font-size: 0.6rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .first {
+    display: none;
+  }
+  .second .logo-nav {
+    display: none;
+  }
+  .second .src-input {
+    margin-bottom: 20px;
+  }
+  .second .search-btn {
+    display: none;
+  }
+  .second .mobile-icons {
+    display: block !important;
+  }
+  .second .mobile-brand {
+    display: block !important;
+  }
+  footer {
+    height: 450px;
+  }
+  footer .first-f {
+    display: none !important;
+  }
+  .contact {
+    display: none !important;
+  }
+  .header-img {
+    background-image: url(/assets/img/bg.webp);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    max-height: 300px;
+  }
+  .header-img .logo-div {
+    margin: auto;
+    width: 50%;
+  }
+  .header-img .logo-div .logo {
+    background-image: url(/assets/img/saleLogo2.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 35%;
+    width: 50%;
+    border-radius: 100%;
+    height: 90px;
+  }
+  .header-img .logo-div .title {
+    font-style: italic;
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-size: 1.5rem;
+  }
+  .header-img .logo-div h6 {
+    font-size: 1rem;
+  }
+  .feature p {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-size: 1.2rem;
+    position: absolute;
+    top: 80%;
+  }
+  .feature a {
+    font-size: 0.8rem;
+    position: absolute;
+    top: 89%;
+  }
+  .carousel-inner .card {
+    width: 10rem !important;
+    margin-bottom: 10px;
+  }
+  .carousel-inner .card h6 {
+    font-size: small;
+  }
+  .carousel-inner .card p {
+    font-size: small;
+  }
+  .carousel-inner .feature-div {
+    width: 25%;
+  }
+  .img-div {
+    background-image: url(/assets/img/home.bg2.jpg);
+    background-repeat: repeat;
+    background-position: center;
+    background-size: 100%;
+  }
+  .img-div .card {
+    width: 12rem !important;
+    margin-bottom: 10px;
+  }
+  .img-div h1 {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-size: 2rem;
+  }
+  .img-div h6 {
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    font-weight: bolder;
+  }
+  .img-div p {
+    font-size: 0.8rem;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .first {
+    display: block;
+  }
+  .second .logo-nav {
+    display: block;
+  }
+  .second .search-btn {
+    display: block;
+  }
+  footer {
+    height: 530px;
+  }
+  .header-img {
+    background-image: url(/assets/img/bg.webp);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    max-height: 430px;
+  }
+  .header-img .logo-div {
+    margin: auto;
+    width: 50%;
+  }
+  .header-img .logo-div .logo {
+    background-image: url(/assets/img/saleLogo2.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 35%;
+    width: 50%;
+    border-radius: 100%;
+    height: 120px;
+  }
+  .header-img .logo-div .title {
+    font-style: italic;
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-size: 2rem;
+  }
+  .header-img .logo-div h6 {
+    font-size: 1rem;
+  }
+  .carousel-inner .card {
+    width: 13rem !important;
+    margin-bottom: 10px;
+  }
+  .carousel-inner .card h6 {
+    font-size: small;
+  }
+  .carousel-inner .card p {
+    font-size: small;
+  }
+  .img-div {
+    background-image: url(/assets/img/home.bg2.jpg);
+    background-repeat: repeat;
+    background-position: center;
+    background-size: 100%;
+  }
+  .img-div .card {
+    width: 15rem !important;
+    margin-bottom: 10px;
+  }
+  .img-div h1 {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-size: 2.5rem;
+  }
+  .img-div h6 {
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    font-weight: bolder;
+  }
+  .img-div p {
+    font-size: 0.8rem;
+  }
+}/*# sourceMappingURL=home.css.map */

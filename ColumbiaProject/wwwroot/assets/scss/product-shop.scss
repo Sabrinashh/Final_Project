@@ -1,0 +1,230 @@
+input[type=checkbox] {
+    position: relative;
+      border: 2px solid #000;
+      border-radius: 2px;
+      background: none;
+      cursor: pointer;
+      line-height: 0;
+      margin: 0 .6em 0 0;
+      outline: 0;
+      padding: 0 !important;
+      vertical-align: text-top;
+      height: 20px;
+      width: 20px;
+      -webkit-appearance: none;
+    opacity: .5;
+  }
+  
+  input[type=checkbox]:hover {
+    opacity: 1;
+  }
+  
+  input[type=checkbox]:checked {
+    background-color: #000;
+    opacity: 1;
+  }
+  
+  input[type=checkbox]:before {
+    content: '';
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    width: 4px;
+    height: 10px;
+    border: solid #FFF;
+    border-width: 0 2px 2px 0;
+    margin: -1px -1px 0 -1px;
+    transform: rotate(45deg) translate(-50%, -50%);
+    z-index: 2;
+  }
+
+  [type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #666;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: #fff;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #7da4f8;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+
+.load-more{
+  margin-top:3%;
+  margin-left: 50%;
+  width: 15%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border-color: blue!important;
+}
+
+
+@media (max-width: 575.98px) {
+.filter{
+  display: none!important;
+}
+.products{
+  margin-top: 20px;
+  width: 100%!important;
+}
+.dropdown{
+  display: none!important;
+}
+.card{
+  margin-top: 20px;
+  margin-bottom: 10px;
+  width: 17rem!important;
+}
+.load-more{
+  margin-top:3%;
+  margin-left: 25%;
+  width: 50%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border-color: blue!important;
+  font-size: 0.8rem;
+}
+.filter-mobile{
+  display: block!important;
+
+}
+}
+  
+@media (min-width: 576px) and (max-width: 767.99px) {
+  .filter{
+    display: none!important;
+  }
+  .products{
+    margin-top: 20px;
+    width: 100%!important;
+  }
+  .dropdown{
+    display: none!important;
+  }
+  .card{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 16rem!important;
+  }
+  .load-more{
+    margin-top:3%;
+    margin-left: 25%;
+    width: 50%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-color: blue!important;
+    font-size: 0.8rem;
+  }
+  .filter-mobile{
+    display: block!important;
+    button{
+      width: 100%!important;
+      margin-left: 5%!important;
+    }
+  }
+   }
+  
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .filter{
+    display: none!important;
+  }
+  .products{
+    margin-top: 20px;
+    width: 100%!important;
+  }
+  .dropdown{
+    display: none!important;
+  }
+  .card{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 20rem!important;
+  }
+  .load-more{
+    margin-top:3%;
+    margin-left: 25%;
+    width: 50%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-color: blue!important;
+    font-size: 0.8rem;
+  }
+  .filter-mobile{
+    display: block!important;
+    button{
+      width: 100%!important;
+      margin-left: 15%!important;
+    }
+  }
+   }
+  
+@media (min-width: 992px) and (max-width: 1199px) { 
+  .filter{
+    display: none!important;
+  }
+  .products{
+    margin-top: 20px;
+    width: 100%!important;
+  }
+  .dropdown{
+    display: none!important;
+  }
+  .card{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 23rem!important;
+  }
+  .load-more{
+    margin-top:3%;
+    margin-left: 25%;
+    width: 50%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-color: blue!important;
+    font-size: 0.8rem;
+  }
+  .filter-mobile{
+    display: block!important;
+    button{
+      width: 100%!important;
+      margin-left: 22%!important;
+    }
+  }
+}
+  
