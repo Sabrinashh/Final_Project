@@ -11,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ColumbiaDbContext>(opt =>
 {
-    opt.UseSqlServer(@"Server=DESKTOP-M3IRH0H\SQLEXPRESS;Database=Columbia;Trusted_Connection=TRUE");
+    opt.UseSqlServer(@"Server=DESKTOP-M3IRH0H\SQLEXPRESS;Database=ColumbiaProject;Trusted_Connection=TRUE");
 });
 
 //builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>

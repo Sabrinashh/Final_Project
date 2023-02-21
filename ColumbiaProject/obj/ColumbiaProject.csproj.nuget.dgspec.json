@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ReC\\source\\repos\\ColumbiaProject\\ColumbiaProject\\ColumbiaProject.csproj": {}
+    "C:\\Users\\ReC\\Desktop\\ColumbiaProject\\ColumbiaProject\\ColumbiaProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ReC\\source\\repos\\ColumbiaProject\\ColumbiaProject\\ColumbiaProject.csproj": {
+    "C:\\Users\\ReC\\Desktop\\ColumbiaProject\\ColumbiaProject\\ColumbiaProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ReC\\source\\repos\\ColumbiaProject\\ColumbiaProject\\ColumbiaProject.csproj",
+        "projectUniqueName": "C:\\Users\\ReC\\Desktop\\ColumbiaProject\\ColumbiaProject\\ColumbiaProject.csproj",
         "projectName": "ColumbiaProject",
-        "projectPath": "C:\\Users\\ReC\\source\\repos\\ColumbiaProject\\ColumbiaProject\\ColumbiaProject.csproj",
+        "projectPath": "C:\\Users\\ReC\\Desktop\\ColumbiaProject\\ColumbiaProject\\ColumbiaProject.csproj",
         "packagesPath": "C:\\Users\\ReC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ReC\\source\\repos\\ColumbiaProject\\ColumbiaProject\\obj\\",
+        "outputPath": "C:\\Users\\ReC\\Desktop\\ColumbiaProject\\ColumbiaProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ReC\\AppData\\Roaming\\NuGet\\NuGet.Config",
