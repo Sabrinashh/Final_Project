@@ -9,8 +9,10 @@ namespace ColumbiaProject.Models
         public int Id { get; set; }
         [MaxLength(100)]
         public string Name { get; set; }
-        public string Category { get; set; }
+        public Category Category { get; set; }
         public int CategoryId { get; set; }
+        public Type Type { get; set; }
+        public int TypeId { get; set; } 
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal SalePrice { get; set; }

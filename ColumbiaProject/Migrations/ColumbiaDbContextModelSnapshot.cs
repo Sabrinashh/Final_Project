@@ -73,10 +73,6 @@ namespace ColumbiaProject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("Category")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
@@ -103,9 +99,14 @@ namespace ColumbiaProject.Migrations
                     b.Property<decimal>("SalePrice")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<int>("TypeId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("TypeId");
 
                     b.ToTable("Products");
                 });
@@ -197,6 +198,24 @@ namespace ColumbiaProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Sizes");
+                });
+
+            modelBuilder.Entity("ColumbiaProject.Models.Type", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Types");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -416,11 +435,21 @@ namespace ColumbiaProject.Migrations
 
             modelBuilder.Entity("ColumbiaProject.Models.Product", b =>
                 {
-                    b.HasOne("ColumbiaProject.Models.Category", null)
+                    b.HasOne("ColumbiaProject.Models.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("ColumbiaProject.Models.Type", "Type")
+                        .WithMany("Products")
+                        .HasForeignKey("TypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Type");
                 });
 
             modelBuilder.Entity("ColumbiaProject.Models.ProductImage", b =>
@@ -519,6 +548,11 @@ namespace ColumbiaProject.Migrations
             modelBuilder.Entity("ColumbiaProject.Models.Size", b =>
                 {
                     b.Navigation("ProductSizes");
+                });
+
+            modelBuilder.Entity("ColumbiaProject.Models.Type", b =>
+                {
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

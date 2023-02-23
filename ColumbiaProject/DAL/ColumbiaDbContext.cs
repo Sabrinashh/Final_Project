@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ColumbiaProject.Models;
+using Type = ColumbiaProject.Models.Type;
 
 namespace ColumbiaProject.DAL
 {
@@ -16,6 +17,7 @@ namespace ColumbiaProject.DAL
         public DbSet<Setting> Settings { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Type> Types { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<ProductSize> ProductSizes { get; set; }
         public DbSet<Size> Sizes { get; set; }
