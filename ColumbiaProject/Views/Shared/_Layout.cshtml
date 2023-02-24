@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using ColumbiaProject.Services
+@inject LayoutService layoutService
+@{
+    Dictionary<string, string> settings = layoutService.GetSettings();
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -52,7 +57,7 @@
 
         <nav class=" second navbar navbar-expand-lg p-0 navbar-dark bg-dark">
             <div class="logo-nav p-4 ">
-                <a href="index.html"> <img class="w-100 " src="~/assets/img/log.png"></a>
+                <a href="index.html"> <img class="w-100 " src="~/assets/img/@settings["logo"]"></a>
             </div>
             <div class="container-fluid ">
                 <a class="navbar-brand mobile-brand d-none fst-italic" href="index.html">Columbia Sportswear</a>
@@ -191,7 +196,7 @@
   <div class="w-20 text-center">
     <i class="las la-phone text-dark bg-light fs-4 "></i>
     <br>
-    <a href="#" class="text-decoration-none text-dark fst-italic"><p>(800) 622-6923</p></a>
+    <a href="#" class="text-decoration-none text-dark fst-italic"><p>@settings["phone"]</p></a>
     <p class=" contact">Phone: 4am-9pm PT M-F, 5am-8pm Sat/Sun
       <br>
       Chat: 4am-9pm PT M-F, 5am-8pm Sat/Sun

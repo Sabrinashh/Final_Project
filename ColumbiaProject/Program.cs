@@ -14,12 +14,12 @@ builder.Services.AddDbContext<ColumbiaDbContext>(opt =>
     opt.UseSqlServer(@"Server=DESKTOP-M3IRH0H\SQLEXPRESS;Database=ColumbiaProject;Trusted_Connection=TRUE");
 });
 
-//builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
-//{
-//    opt.Password.RequireDigit = false;
-//    opt.Password.RequiredLength = 8;
-//    opt.Password.RequireNonAlphanumeric = false;
-//}).AddDefaultTokenProviders().AddEntityFrameworkStores<ColumbiaDbContext>();
+builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
+{
+    opt.Password.RequireDigit = false;
+    opt.Password.RequiredLength = 8;
+    opt.Password.RequireNonAlphanumeric = false;
+}).AddDefaultTokenProviders().AddEntityFrameworkStores<ColumbiaDbContext>();
 
 builder.Services.AddScoped<LayoutService>();
 
