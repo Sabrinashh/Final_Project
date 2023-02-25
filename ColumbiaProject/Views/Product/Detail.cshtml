@@ -1,67 +1,57 @@
-﻿<section class="container pt-2 mt-5  ">
+﻿@model Product
+<section class="container pt-2 mt-5  ">
     <div class=" detail d-flex justify-content-evenly w-100 flex-wrap">
         <div class="w-49 slide">
             <div class="container w-75">
-                <div class="mySlides ">
-                    <div class="numbertext text-dark">1 / 6</div>
-                    <img src="~/assets/img/Infinity Insulated Parka(product1).webp" style="width:100%">
+                @foreach (var item in Model.ProductImages)
+                {
+                     <div class="mySlides ">
+                    <img src="~/assets/img/@item.Name" style="width:100%">
                 </div>
-                <div class="mySlides">
-                    <div class="numbertext text-dark">2 / 6</div>
-                    <img src="~/assets/img/product1(1).webp" style="width:100%">
-                </div>
-                <div class="mySlides">
-                    <div class="numbertext text-dark">3 / 6</div>
-                    <img src="~/assets/img/product1(2).webp" style="width:100%">
-                </div>
-                <div class="mySlides">
-                    <div class="numbertext text-dark">4 / 6</div>
-                    <img src="~/assets/img/product1(3).webp" style="width:100%">
-                </div>
-                <div class="mySlides">
-                    <div class="numbertext text-dark">5 / 6</div>
-                    <img src="~/assets/img/product1(4).webp" style="width:100%">
-                </div>
-                <div class="mySlides">
-                    <div class="numbertext text-dark">6 / 6</div>
-                    <img src="~/assets/img/product1(5).webp" style="width:100%">
-                </div>
+                }
+              
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
                 <div class="row mt-3 ">
-                    <div class="column">
-                        <img class="demo cursor" src="~/assets/img/Infinity Insulated Parka(product1).webp" style="width:100%" onclick="currentSlide(1)">
-                    </div>
-                    <div class="column">
-                        <img class="demo cursor" src="~/assets/img/product1(1).webp" style="width:100%" onclick="currentSlide(2)">
-                    </div>
-                    <div class="column">
-                        <img class="demo cursor" src="~/assets/img/product1(2).webp" style="width:100%" onclick="currentSlide(3)">
-                    </div>
-                    <div class="column">
-                        <img class="demo cursor" src="~/assets/img/product1(3).webp" style="width:100%" onclick="currentSlide(4)">
-                    </div>
-                    <div class="column">
-                        <img class="demo cursor" src="~/assets/img/product1(4).webp" style="width:100%" onclick="currentSlide(5)">
-                    </div>
-                    <div class="column">
-                        <img class="demo cursor" src="~/assets/img/product1(5).webp" style="width:100%" onclick="currentSlide(6)">
-                    </div>
+                    @foreach (var item in Model.ProductImages)
+                    {
+                        <div class="column">
+                            <img class="demo cursor" src="~/assets/img/@item.Name" style="width:100%" onclick="currentSlide(1)">
+                        </div>
+                    }
+                  
+
                 </div>
             </div>
         </div>
         <div class="w-45 ms-5 details">
-            <h4 class="fw-bold">Women's Little Si™ Omni-Heat™ Infinity Insulated Parka</h4>
-            <p class="text-danger fw-bold mt-3">$171.91 <del class="text-dark fw-light">$230.00</del></p>
-            <i class="las la-tags text-danger fs-4"> <span class="text-dark fw-light fs-6">Sale</span></i>
+            <h4 class="fw-bold">@Model.Name</h4>
+            @if (Model.DiscountPercent > 0)
+            {
+                <p class="card-text text-danger">$@((Model.SalePrice * (100 - Model.DiscountPercent) / 100).ToString("0.00")) <del class="text-dark">$@Model.SalePrice</del></p>
+            }
+            else
+            {
+                <p class="card-text">$@Model.SalePrice</p>
+            }
+            <i class="las la-tags text-danger fs-4"></i>
+                @if (Model.IsNew == true)
+                {
+                   <span class="text-dark fw-light fs-6">New</span>
+                }
+                @if (Model.DiscountPercent > 0)
+                {
+                <span class="text-dark fw-light fs-6">Sale</span>
+                }
+                
             <p class="mt-5 mb-3">Size:</p>
             <div class=" w-75 d-flex justify-content-between sizes ">
-                <div class="size-box border border-dark text-center pt-1 "><a href="#" class="fw-bold text-decoration-none text-dark disable">XS</a></div>
-                <div class="size-box border border-dark text-center pt-1 "><a href="#" class="fw-bold text-decoration-none text-dark">S</a></div>
-                <div class="size-box border border-dark text-center pt-1 "><a href="#" class="fw-bold text-decoration-none text-dark">M</a></div>
-                <div class="size-box border border-dark text-center pt-1 "><a href="#" class="fw-bold text-decoration-none text-dark">L</a></div>
-                <div class="size-box border border-dark text-center pt-1 "><a href="#" class="fw-bold text-decoration-none text-dark">XL</a></div>
-                <div class="size-box border border-dark text-center pt-1 "><a href="#" class="fw-bold text-decoration-none text-dark">XXL</a></div>
+                @foreach (var item in Model.ProductSizes)
+                {
+                     <div class="size-box border border-dark text-center pt-1 "><a href="#" class="fw-bold text-decoration-none text-dark disable">@item.Size.Name</a></div>
+                }
+               
+               
             </div>
             <button class="btn btn-primary w-100 mt-4 fs-6">ADD TO CART</button>
             <div class="accordion accordion-flush mt-3" id="accordionFlushExample">
