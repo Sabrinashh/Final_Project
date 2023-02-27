@@ -1,4 +1,4 @@
-﻿@model MemberRegisterViewModel
+﻿@model MemberLoginViewModel
 <section class="container mt-4 ">
     <h3 class="text-dark">Log in</h3>
     <form method="post" class="w-50 m-auto login">
@@ -19,7 +19,9 @@
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">Remember Me</label>
         </div>
-        <a asp-controller="account" asp-action="resetpassword" class="text-dark">Forgot Password</a>
+        <a asp-controller="account" asp-action="forgotpassword" class="text-dark">Forgot Password</a>
         <a asp-controller="account" asp-action="register" class="text-dark ms-5">Create An Account</a>
     </form>
 </section>
+
+

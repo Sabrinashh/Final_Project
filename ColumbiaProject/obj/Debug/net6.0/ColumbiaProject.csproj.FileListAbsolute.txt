@@ -132,3 +132,6 @@ C:\Users\ReC\Desktop\ColumbiaProject\ColumbiaProject\obj\Debug\net6.0\refint\Col
 C:\Users\ReC\Desktop\ColumbiaProject\ColumbiaProject\obj\Debug\net6.0\ColumbiaProject.pdb
 C:\Users\ReC\Desktop\ColumbiaProject\ColumbiaProject\obj\Debug\net6.0\ColumbiaProject.genruntimeconfig.cache
 C:\Users\ReC\Desktop\ColumbiaProject\ColumbiaProject\obj\Debug\net6.0\ref\ColumbiaProject.dll
+C:\Users\ReC\Desktop\ColumbiaProject\ColumbiaProject\bin\Debug\net6.0\MailKit.dll
+C:\Users\ReC\Desktop\ColumbiaProject\ColumbiaProject\bin\Debug\net6.0\MimeKit.dll
+C:\Users\ReC\Desktop\ColumbiaProject\ColumbiaProject\bin\Debug\net6.0\BouncyCastle.Crypto.dll
