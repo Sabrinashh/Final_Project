@@ -1,8 +1,8 @@
-﻿@*@using Microsoft.AspNetCore.Identity
+﻿@using Microsoft.AspNetCore.Identity
 @inject UserManager<AppUser> _userManager
 @{
     AppUser user = _userManager.FindByNameAsync(User.Identity.Name).Result;
-}*@
+}
 
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
@@ -115,7 +115,7 @@
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="~/manage/images/users/1.jpg" alt="user" class="profile-pic me-2">@*@user.Fullname*@
+                                <img src="~/manage/images/users/1.jpg" alt="user" class="profile-pic me-2">@user.Fullname
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown"></ul>
                         </li>
@@ -144,8 +144,14 @@
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                               asp-controller="ProductType" asp-action="index" aria-expanded="false">
+                                <i class="mdi me-2 mdi-table"></i><span class="hide-menu">Type</span>
+                            </a>
+                        </li>
+                             <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                href="pages-profile.html" aria-expanded="false">
-                                <i class="mdi me-2 mdi-account-check"></i><span class="hide-menu">Profile</span>
+                                <i class="mdi me-2 mdi-table "></i><span class="hide-menu">Size</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
@@ -157,19 +163,19 @@
                             <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                asp-controller="City" asp-action="index" aria-expanded="false">
-                                <i class="mdi me-2 mdi-table"></i><span class="hide-menu">Cities</span>
+                                <i class="mdi me-2 mdi-table"></i><span class="hide-menu">Products</span>
                             </a>
                         </li>
                            <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                asp-controller="Slider" asp-action="index" aria-expanded="false">
-                                <i class="mdi me-2 mdi-table"></i><span class="hide-menu">Sliders</span>
+                                <i class="mdi me-2 mdi-table"></i><span class="hide-menu">Header</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                asp-controller="Service" asp-action="index" aria-expanded="false">
-                                <i class="mdi me-2 mdi-table"></i><span class="hide-menu">Services</span>
+                                <i class="mdi me-2 mdi-table"></i><span class="hide-menu">Setting</span>
                             </a>
                         </li>
 
@@ -185,28 +191,6 @@
                 <!-- End Sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->
-            <div class="sidebar-footer">
-                <div class="row">
-                    <div class="col-4 link-wrap">
-                        <!-- item-->
-                        <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Settings">
-                            <i class="ti-settings"></i>
-                        </a>
-                    </div>
-                    <div class="col-4 link-wrap">
-                        <!-- item-->
-                        <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Email">
-                            <i class="mdi mdi-gmail"></i>
-                        </a>
-                    </div>
-                    <div class="col-4 link-wrap">
-                        <!-- item-->
-                        <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Logout">
-                            <i class="mdi mdi-power"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
         </aside>
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->

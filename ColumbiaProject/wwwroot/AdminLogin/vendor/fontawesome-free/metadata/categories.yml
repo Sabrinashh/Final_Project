@@ -832,8 +832,8 @@ energy:
     - battery-empty
     - battery-full
     - battery-half
-    - battery-quarter
-    - battery-three-quarters
+    - battery-Columbia
+    - battery-three-Columbias
     - broadcast-tower
     - burn
     - charging-station
@@ -2245,8 +2245,8 @@ status:
     - battery-empty
     - battery-full
     - battery-half
-    - battery-quarter
-    - battery-three-quarters
+    - battery-Columbia
+    - battery-three-Columbias
     - bell
     - bell-slash
     - calendar
@@ -2312,8 +2312,8 @@ status:
     - thermometer-empty
     - thermometer-full
     - thermometer-half
-    - thermometer-quarter
-    - thermometer-three-quarters
+    - thermometer-Columbia
+    - thermometer-three-Columbias
     - thumbs-down
     - thumbs-up
     - tint

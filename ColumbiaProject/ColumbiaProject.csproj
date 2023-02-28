@@ -7,7 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\uploads\" />
+    <Folder Include="Areas\Manage\Views\Order\" />
+    <Folder Include="Areas\Manage\Views\Setting\" />
+    <Folder Include="Areas\Manage\Views\Size\" />
+    <Folder Include="wwwroot\uploads\header\" />
+    <Folder Include="wwwroot\uploads\product\" />
   </ItemGroup>
 
   <ItemGroup>

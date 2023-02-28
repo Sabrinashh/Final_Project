@@ -2729,7 +2729,7 @@ var PI = Math.PI;
 var RAD_PER_DEG = PI / 180;
 var DOUBLE_PI = PI * 2;
 var HALF_PI = PI / 2;
-var QUARTER_PI = PI / 4;
+var Columbia_PI = PI / 4;
 var TWO_THIRDS_PI = PI * 2 / 3;
 
 /**
@@ -2832,8 +2832,8 @@ var exports$1 = {
 			// https://github.com/chartjs/Chart.js/issues/5858
 			cornerRadius = radius * 0.516;
 			size = radius - cornerRadius;
-			xOffset = Math.cos(rad + QUARTER_PI) * size;
-			yOffset = Math.sin(rad + QUARTER_PI) * size;
+			xOffset = Math.cos(rad + Columbia_PI) * size;
+			yOffset = Math.sin(rad + Columbia_PI) * size;
 			ctx.arc(x - xOffset, y - yOffset, cornerRadius, rad - PI, rad - HALF_PI);
 			ctx.arc(x + yOffset, y - xOffset, cornerRadius, rad - HALF_PI, rad);
 			ctx.arc(x + xOffset, y + yOffset, cornerRadius, rad, rad + HALF_PI);
@@ -2846,7 +2846,7 @@ var exports$1 = {
 				ctx.rect(x - size, y - size, 2 * size, 2 * size);
 				break;
 			}
-			rad += QUARTER_PI;
+			rad += Columbia_PI;
 			/* falls through */
 		case 'rectRot':
 			xOffset = Math.cos(rad) * radius;
@@ -2858,7 +2858,7 @@ var exports$1 = {
 			ctx.closePath();
 			break;
 		case 'crossRot':
-			rad += QUARTER_PI;
+			rad += Columbia_PI;
 			/* falls through */
 		case 'cross':
 			xOffset = Math.cos(rad) * radius;
@@ -2875,7 +2875,7 @@ var exports$1 = {
 			ctx.lineTo(x + xOffset, y + yOffset);
 			ctx.moveTo(x + yOffset, y - xOffset);
 			ctx.lineTo(x - yOffset, y + xOffset);
-			rad += QUARTER_PI;
+			rad += Columbia_PI;
 			xOffset = Math.cos(rad) * radius;
 			yOffset = Math.sin(rad) * radius;
 			ctx.moveTo(x - xOffset, y - yOffset);
@@ -10926,7 +10926,7 @@ function abstract() {
 
 /**
  * Currently supported unit string values.
- * @typedef {('millisecond'|'second'|'minute'|'hour'|'day'|'week'|'month'|'quarter'|'year')}
+ * @typedef {('millisecond'|'second'|'minute'|'hour'|'day'|'week'|'month'|'Columbia'|'year')}
  * @memberof Chart._adapters._date
  * @name Unit
  */
@@ -13535,7 +13535,7 @@ function fitWithPointLabels(scale) {
 		textSize = measureLabelSize(scale.ctx, plFont.lineHeight, scale.pointLabels[i]);
 		scale._pointLabelSizes[i] = textSize;
 
-		// Add quarter circle to make degree 0 mean top of circle
+		// Add Columbia circle to make degree 0 mean top of circle
 		var angleRadians = scale.getIndexAngle(i);
 		var angle = helpers$1.toDegrees(angleRadians) % 360;
 		var hLimits = determineLimits(angle, pointPosition.x, textSize.w, 0, 180);
@@ -13784,7 +13784,7 @@ var scale_radialLinear = scale_linearbase.extend({
 		var options = chart.options || {};
 		var startAngle = options.startAngle || 0;
 
-		// Start from the top instead of right, so remove a quarter of the circle
+		// Start from the top instead of right, so remove a Columbia of the circle
 		var angle = (index * angleMultiplier + startAngle) % 360;
 
 		return (angle < 0 ? angle + 360 : angle) * Math.PI * 2 / 360;
@@ -13983,7 +13983,7 @@ var INTERVALS = {
 		size: 2.628e9,
 		steps: 12
 	},
-	quarter: {
+	Columbia: {
 		common: false,
 		size: 7.884e9,
 		steps: 4
@@ -14715,7 +14715,7 @@ var FORMATS = {
 	day: 'MMM D',
 	week: 'll',
 	month: 'MMM YYYY',
-	quarter: '[Q]Q - YYYY',
+	Columbia: '[Q]Q - YYYY',
 	year: 'YYYY'
 };
 

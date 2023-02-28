@@ -36,8 +36,7 @@ namespace ColumbiaProject.Controllers
         {
             return View();
         }
-
-      
+ 
 
         [HttpPost]
         public async Task<IActionResult> Register(MemberRegisterViewModel memberVM)
@@ -199,8 +198,9 @@ namespace ColumbiaProject.Controllers
             return RedirectToAction("login");
         }
 
-        public async Task<IActionResult> ForgotPassword()
+        public async  Task<IActionResult> ForgotPassword()
         {
+            
             return View();
         }
 
@@ -276,6 +276,6 @@ namespace ColumbiaProject.Controllers
 
             return RedirectToAction("login");
         }
-    
-}
+
+    }
 }

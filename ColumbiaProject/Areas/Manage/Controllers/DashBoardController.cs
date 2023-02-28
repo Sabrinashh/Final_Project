@@ -5,7 +5,7 @@ using System.Data;
 namespace ColumbiaProject.Areas.Manage.Controllers
 {
     [Area("manage")]
-    //[Authorize(Roles = "SuperAdmin,Admin,Editor")]
+    [Authorize(Roles = "SuperAdmin,Admin,Editor")]
     public class DashBoardController : Controller
     {
         public IActionResult Index()

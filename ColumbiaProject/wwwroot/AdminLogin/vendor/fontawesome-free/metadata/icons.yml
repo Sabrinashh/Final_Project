@@ -1457,7 +1457,7 @@ battery-half:
     - solid
   unicode: f242
   voted: false
-battery-quarter:
+battery-Columbia:
   changes:
     - '4.4'
     - 5.0.0
@@ -1472,7 +1472,7 @@ battery-quarter:
     - solid
   unicode: f243
   voted: false
-battery-three-quarters:
+battery-three-Columbias:
   changes:
     - '4.4'
     - 5.0.0
@@ -18934,7 +18934,7 @@ thermometer-half:
     - solid
   unicode: f2c9
   voted: false
-thermometer-quarter:
+thermometer-Columbia:
   changes:
     - '4.7'
     - 5.0.0
@@ -18948,7 +18948,7 @@ thermometer-quarter:
     - solid
   unicode: f2ca
   voted: false
-thermometer-three-quarters:
+thermometer-three-Columbias:
   changes:
     - '4.7'
     - 5.0.0

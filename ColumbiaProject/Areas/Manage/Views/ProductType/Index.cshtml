@@ -1,0 +1,108 @@
+﻿@model List<ProductType>
+@{
+    ViewData["Title"] = "Index";
+    int selectedPage = ViewBag.Page;
+    int totalPage = ViewBag.TotalPage;
+    int order = (selectedPage - 1) * 2;
+}
+
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb">
+                <div class="row align-items-center">
+                    <div class="col-md-6 col-8 align-self-center">
+                        <h3 class="page-title mb-0 p-0">Table</h3>
+                        <div class="d-flex align-items-center">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Types</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Types</h4>
+                        <a asp-controller="Category" asp-action="create" class="btn btn-primary">Create</a>
+                                <div class="table-responsive">
+                                    <table class="table user-table">
+                                        <thead>
+                                            <tr>
+                                                <th class="border-top-0">#</th>
+                                                <th class="border-top-0"> Name</th>
+                                              <th class="border-top-0"> Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                   @foreach (var item in Model)
+                                   {
+                                        <tr>
+                                            <td>@item.Id</td>
+                                            <td>@item.Name</td>
+
+                                            <td><a class="btn btn-danger " asp-action="delete" asp-route-id="@item.Id">Delete</a></td>
+                                            <td><a class="btn btn-info" asp-action="edit" asp-route-id="@item.Id">Edit</a></td>
+                                        </tr>
+                                   }
+                                         
+                                 
+                                        </tbody>
+                                    </table>
+                                </div>
+                      
+                            </div>
+                        </div>
+                    </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link" asp-action="index" asp-route-page="@(selectedPage-1)" tabindex="-1">Previous</a>
+                            </li>
+                            @for (var i = 1; i <= totalPage; i++)
+                            {
+                                <li class="page-item @(i==selectedPage?"active":"")"><a class="page-link" asp-action="index" asp-route-page="@i">@i</a></li>
+                            }
+                            <li class="page-item">
+                                <a class="page-link" asp-action="index" asp-route-page="@(selectedPage+1)">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+

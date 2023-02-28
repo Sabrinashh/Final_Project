@@ -6715,7 +6715,7 @@ var epsilon$2 = 1e-6;
 var epsilon2$1 = 1e-12;
 var pi$3 = Math.PI;
 var halfPi$2 = pi$3 / 2;
-var quarterPi = pi$3 / 4;
+var ColumbiaPi = pi$3 / 4;
 var tau$3 = pi$3 * 2;
 
 var degrees$1 = 180 / pi$3;
@@ -6859,12 +6859,12 @@ function areaPointFirst(lambda, phi) {
   areaStream.point = areaPoint;
   lambda00 = lambda, phi00 = phi;
   lambda *= radians, phi *= radians;
-  lambda0 = lambda, cosPhi0 = cos$1(phi = phi / 2 + quarterPi), sinPhi0 = sin$1(phi);
+  lambda0 = lambda, cosPhi0 = cos$1(phi = phi / 2 + ColumbiaPi), sinPhi0 = sin$1(phi);
 }
 
 function areaPoint(lambda, phi) {
   lambda *= radians, phi *= radians;
-  phi = phi / 2 + quarterPi; // half the angular distance from south pole
+  phi = phi / 2 + ColumbiaPi; // half the angular distance from south pole
 
   // Spherical excess E for a spherical triangle with vertices: south pole,
   // previous point, current point.  Uses a formula derived from Cagnoli’s
@@ -7791,14 +7791,14 @@ var polygonContains = function(polygon, point) {
         m,
         point0 = ring[m - 1],
         lambda0 = point0[0],
-        phi0 = point0[1] / 2 + quarterPi,
+        phi0 = point0[1] / 2 + ColumbiaPi,
         sinPhi0 = sin$1(phi0),
         cosPhi0 = cos$1(phi0);
 
     for (var j = 0; j < m; ++j, lambda0 = lambda1, sinPhi0 = sinPhi1, cosPhi0 = cosPhi1, point0 = point1) {
       var point1 = ring[j],
           lambda1 = point1[0],
-          phi1 = point1[1] / 2 + quarterPi,
+          phi1 = point1[1] / 2 + ColumbiaPi,
           sinPhi1 = sin$1(phi1),
           cosPhi1 = cos$1(phi1),
           delta = lambda1 - lambda0,

@@ -53,7 +53,7 @@
         padding-right: $input-height-inner;
         background-image: escape-svg($icon);
         background-repeat: no-repeat;
-        background-position: right $input-height-inner-quarter center;
+        background-position: right $input-height-inner-Columbia center;
         background-size: $input-height-inner-half $input-height-inner-half;
       }
 
@@ -69,7 +69,7 @@
     @include form-validation-state-selector($state) {
       @if $enable-validation-icons {
         padding-right: $input-height-inner;
-        background-position: top $input-height-inner-quarter right $input-height-inner-quarter;
+        background-position: top $input-height-inner-Columbia right $input-height-inner-Columbia;
       }
     }
   }

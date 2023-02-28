@@ -2733,7 +2733,7 @@ var PI = Math.PI;
 var RAD_PER_DEG = PI / 180;
 var DOUBLE_PI = PI * 2;
 var HALF_PI = PI / 2;
-var QUARTER_PI = PI / 4;
+var Columbia_PI = PI / 4;
 var TWO_THIRDS_PI = PI * 2 / 3;
 
 /**
@@ -2836,8 +2836,8 @@ var exports$1 = {
 			// https://github.com/chartjs/Chart.js/issues/5858
 			cornerRadius = radius * 0.516;
 			size = radius - cornerRadius;
-			xOffset = Math.cos(rad + QUARTER_PI) * size;
-			yOffset = Math.sin(rad + QUARTER_PI) * size;
+			xOffset = Math.cos(rad + Columbia_PI) * size;
+			yOffset = Math.sin(rad + Columbia_PI) * size;
 			ctx.arc(x - xOffset, y - yOffset, cornerRadius, rad - PI, rad - HALF_PI);
 			ctx.arc(x + yOffset, y - xOffset, cornerRadius, rad - HALF_PI, rad);
 			ctx.arc(x + xOffset, y + yOffset, cornerRadius, rad, rad + HALF_PI);
@@ -2850,7 +2850,7 @@ var exports$1 = {
 				ctx.rect(x - size, y - size, 2 * size, 2 * size);
 				break;
 			}
-			rad += QUARTER_PI;
+			rad += Columbia_PI;
 			/* falls through */
 		case 'rectRot':
 			xOffset = Math.cos(rad) * radius;
@@ -2862,7 +2862,7 @@ var exports$1 = {
 			ctx.closePath();
 			break;
 		case 'crossRot':
-			rad += QUARTER_PI;
+			rad += Columbia_PI;
 			/* falls through */
 		case 'cross':
 			xOffset = Math.cos(rad) * radius;
@@ -2879,7 +2879,7 @@ var exports$1 = {
 			ctx.lineTo(x + xOffset, y + yOffset);
 			ctx.moveTo(x + yOffset, y - xOffset);
 			ctx.lineTo(x - yOffset, y + xOffset);
-			rad += QUARTER_PI;
+			rad += Columbia_PI;
 			xOffset = Math.cos(rad) * radius;
 			yOffset = Math.sin(rad) * radius;
 			ctx.moveTo(x - xOffset, y - yOffset);
@@ -10930,7 +10930,7 @@ function abstract() {
 
 /**
  * Currently supported unit string values.
- * @typedef {('millisecond'|'second'|'minute'|'hour'|'day'|'week'|'month'|'quarter'|'year')}
+ * @typedef {('millisecond'|'second'|'minute'|'hour'|'day'|'week'|'month'|'Columbia'|'year')}
  * @memberof Chart._adapters._date
  * @name Unit
  */
@@ -13539,7 +13539,7 @@ function fitWithPointLabels(scale) {
 		textSize = measureLabelSize(scale.ctx, plFont.lineHeight, scale.pointLabels[i]);
 		scale._pointLabelSizes[i] = textSize;
 
-		// Add quarter circle to make degree 0 mean top of circle
+		// Add Columbia circle to make degree 0 mean top of circle
 		var angleRadians = scale.getIndexAngle(i);
 		var angle = helpers$1.toDegrees(angleRadians) % 360;
 		var hLimits = determineLimits(angle, pointPosition.x, textSize.w, 0, 180);
@@ -13788,7 +13788,7 @@ var scale_radialLinear = scale_linearbase.extend({
 		var options = chart.options || {};
 		var startAngle = options.startAngle || 0;
 
-		// Start from the top instead of right, so remove a quarter of the circle
+		// Start from the top instead of right, so remove a Columbia of the circle
 		var angle = (index * angleMultiplier + startAngle) % 360;
 
 		return (angle < 0 ? angle + 360 : angle) * Math.PI * 2 / 360;
@@ -13987,7 +13987,7 @@ var INTERVALS = {
 		size: 2.628e9,
 		steps: 12
 	},
-	quarter: {
+	Columbia: {
 		common: false,
 		size: 7.884e9,
 		steps: 4
@@ -17423,7 +17423,7 @@ var moment = createCommonjsModule(function (module, exports) {
         return Date.now ? Date.now() : +(new Date());
     };
 
-    var ordering = ['year', 'quarter', 'month', 'week', 'day', 'hour', 'minute', 'second', 'millisecond'];
+    var ordering = ['year', 'Columbia', 'month', 'week', 'day', 'hour', 'minute', 'second', 'millisecond'];
 
     function isDurationValid(m) {
         for (var key in m) {
@@ -17458,7 +17458,7 @@ var moment = createCommonjsModule(function (module, exports) {
     function Duration (duration) {
         var normalizedInput = normalizeObjectUnits(duration),
             years = normalizedInput.year || 0,
-            quarters = normalizedInput.quarter || 0,
+            Columbias = normalizedInput.Columbia || 0,
             months = normalizedInput.month || 0,
             weeks = normalizedInput.week || normalizedInput.isoWeek || 0,
             days = normalizedInput.day || 0,
@@ -17482,7 +17482,7 @@ var moment = createCommonjsModule(function (module, exports) {
         // which months you are are talking about, so we have to store
         // it separately.
         this._months = +months +
-            quarters * 3 +
+            Columbias * 3 +
             years * 12;
 
         this._data = {};
@@ -17992,7 +17992,7 @@ var moment = createCommonjsModule(function (module, exports) {
         switch (units) {
             case 'year': output = monthDiff(this, that) / 12; break;
             case 'month': output = monthDiff(this, that); break;
-            case 'quarter': output = monthDiff(this, that) / 3; break;
+            case 'Columbia': output = monthDiff(this, that) / 3; break;
             case 'second': output = (this - that) / 1e3; break; // 1000
             case 'minute': output = (this - that) / 6e4; break; // 1000 * 60
             case 'hour': output = (this - that) / 36e5; break; // 1000 * 60 * 60
@@ -18187,7 +18187,7 @@ var moment = createCommonjsModule(function (module, exports) {
             case 'year':
                 time = startOfDate(this.year(), 0, 1);
                 break;
-            case 'quarter':
+            case 'Columbia':
                 time = startOfDate(this.year(), this.month() - this.month() % 3, 1);
                 break;
             case 'month':
@@ -18235,7 +18235,7 @@ var moment = createCommonjsModule(function (module, exports) {
             case 'year':
                 time = startOfDate(this.year() + 1, 0, 1) - 1;
                 break;
-            case 'quarter':
+            case 'Columbia':
                 time = startOfDate(this.year(), this.month() - this.month() % 3 + 3, 1) - 1;
                 break;
             case 'month':
@@ -18426,15 +18426,15 @@ var moment = createCommonjsModule(function (module, exports) {
 
     // FORMATTING
 
-    addFormatToken('Q', 0, 'Qo', 'quarter');
+    addFormatToken('Q', 0, 'Qo', 'Columbia');
 
     // ALIASES
 
-    addUnitAlias('quarter', 'Q');
+    addUnitAlias('Columbia', 'Q');
 
     // PRIORITY
 
-    addUnitPriority('quarter', 7);
+    addUnitPriority('Columbia', 7);
 
     // PARSING
 
@@ -18445,7 +18445,7 @@ var moment = createCommonjsModule(function (module, exports) {
 
     // MOMENTS
 
-    function getSetQuarter (input) {
+    function getSetColumbia (input) {
         return input == null ? Math.ceil((this.month() + 1) / 3) : this.month((input - 1) * 3 + this.month() % 3);
     }
 
@@ -18672,7 +18672,7 @@ var moment = createCommonjsModule(function (module, exports) {
     proto.isLeapYear = getIsLeapYear;
     proto.weekYear    = getSetWeekYear;
     proto.isoWeekYear = getSetISOWeekYear;
-    proto.quarter = proto.quarters = getSetQuarter;
+    proto.Columbia = proto.Columbias = getSetColumbia;
     proto.month       = getSetMonth;
     proto.daysInMonth = getDaysInMonth;
     proto.week           = proto.weeks        = getSetWeek;
@@ -18973,12 +18973,12 @@ var moment = createCommonjsModule(function (module, exports) {
 
         units = normalizeUnits(units);
 
-        if (units === 'month' || units === 'quarter' || units === 'year') {
+        if (units === 'month' || units === 'Columbia' || units === 'year') {
             days = this._days + milliseconds / 864e5;
             months = this._months + daysToMonths(days);
             switch (units) {
                 case 'month':   return months;
-                case 'quarter': return months / 3;
+                case 'Columbia': return months / 3;
                 case 'year':    return months / 12;
             }
         } else {
@@ -19023,7 +19023,7 @@ var moment = createCommonjsModule(function (module, exports) {
     var asDays         = makeAs('d');
     var asWeeks        = makeAs('w');
     var asMonths       = makeAs('M');
-    var asQuarters     = makeAs('Q');
+    var asColumbias     = makeAs('Q');
     var asYears        = makeAs('y');
 
     function clone$1 () {
@@ -19215,7 +19215,7 @@ var moment = createCommonjsModule(function (module, exports) {
     proto$2.asDays         = asDays;
     proto$2.asWeeks        = asWeeks;
     proto$2.asMonths       = asMonths;
-    proto$2.asQuarters     = asQuarters;
+    proto$2.asColumbias     = asColumbias;
     proto$2.asYears        = asYears;
     proto$2.valueOf        = valueOf$1;
     proto$2._bubble        = bubble;
@@ -19319,7 +19319,7 @@ var FORMATS = {
 	day: 'MMM D',
 	week: 'll',
 	month: 'MMM YYYY',
-	quarter: '[Q]Q - YYYY',
+	Columbia: '[Q]Q - YYYY',
 	year: 'YYYY'
 };
 
