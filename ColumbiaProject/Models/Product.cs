@@ -11,8 +11,8 @@ namespace ColumbiaProject.Models
         public string Name { get; set; }
         public Category Category { get; set; }
         public int CategoryId { get; set; }
-        public ProductType Type { get; set; }
-        public int TypeId { get; set; } 
+        public ProductType ProductType { get; set; }
+        public int ProductTypeId { get; set; } 
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal SalePrice { get; set; }

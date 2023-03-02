@@ -20,9 +20,9 @@ namespace ColumbiaProject.Areas.Manage.Controllers
         }
         public IActionResult Index(int page = 1)
         {
-            var model = _context.Types.Include(x => x.Products).Skip((page - 1) * 3).Take(3).ToList();
+            var model = _context.ProductTypes.Include(x => x.Products).Skip((page - 1) * 3).Take(3).ToList();
             ViewBag.Page = page;
-            ViewBag.TotalPage = (int)Math.Ceiling(_context.Types.Count() / 3d);
+            ViewBag.TotalPage = (int)Math.Ceiling(_context.ProductTypes.Count() / 3d);
             return View(model);
         }
         public IActionResult Create()
@@ -38,13 +38,13 @@ namespace ColumbiaProject.Areas.Manage.Controllers
                 return View();
             }
 
-            if (_context.Types.Any(x => x.Name == ProductType.Name))
+            if (_context.ProductTypes.Any(x => x.Name == ProductType.Name))
             {
                 ModelState.AddModelError("Name", "This name has been taken");
                 return View();
             }
 
-            _context.Types.Add(ProductType);
+            _context.ProductTypes.Add(ProductType);
             _context.SaveChanges();
 
             return RedirectToAction("Index");
@@ -52,7 +52,7 @@ namespace ColumbiaProject.Areas.Manage.Controllers
 
         public IActionResult Edit(int id)
         {
-            ProductType ProductType = _context.Types.FirstOrDefault(x => x.Id == id);
+            ProductType ProductType = _context.ProductTypes.FirstOrDefault(x => x.Id == id);
 
             if (ProductType == null)
                 return RedirectToAction("index", "error");
@@ -70,13 +70,13 @@ namespace ColumbiaProject.Areas.Manage.Controllers
             }
 
 
-            if (_context.Types.Any(x => x.Name == ProductType.Name && x.Id != ProductType.Id))
+            if (_context.ProductTypes.Any(x => x.Name == ProductType.Name && x.Id != ProductType.Id))
             {
                 ModelState.AddModelError("Name", "This name has been taken");
                 return View();
             }
 
-            ProductType existProductType = _context.Types.FirstOrDefault(x => x.Id == ProductType.Id);
+            ProductType existProductType = _context.ProductTypes.FirstOrDefault(x => x.Id == ProductType.Id);
 
             existProductType.Name = ProductType.Name;
             _context.SaveChanges();
@@ -86,7 +86,7 @@ namespace ColumbiaProject.Areas.Manage.Controllers
 
         public IActionResult Delete(int id)
         {
-            ProductType ProductType = _context.Types.Include(x => x.Products).FirstOrDefault(x => x.Id == id);
+            ProductType ProductType = _context.ProductTypes.Include(x => x.Products).FirstOrDefault(x => x.Id == id);
 
             return View(ProductType);
         }
@@ -94,11 +94,11 @@ namespace ColumbiaProject.Areas.Manage.Controllers
         [HttpPost]
         public IActionResult Delete(ProductType ProductType)
         {
-           ProductType existProductType = _context.Types.FirstOrDefault(x => x.Id == ProductType.Id);
+           ProductType existProductType = _context.ProductTypes.FirstOrDefault(x => x.Id == ProductType.Id);
 
-            if (!_context.Products.Any(x => x.TypeId == ProductType.Id))
+            if (!_context.Products.Any(x => x.ProductTypeId == ProductType.Id))
             {
-                _context.Types.Remove(existProductType);
+                _context.ProductTypes.Remove(existProductType);
                 _context.SaveChanges();
             }
 

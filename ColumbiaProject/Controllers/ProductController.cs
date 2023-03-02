@@ -20,7 +20,7 @@ namespace ColumbiaProject.Controllers
         public IActionResult Detail(int id)
         {
             Product product=_context.Products.Include(x => x.Category)
-                .Include(x => x.Type).Include(x => x.ProductImages)
+                .Include(x => x.ProductType).Include(x => x.ProductImages)
                 .Include(x => x.ProductSizes).ThenInclude(x => x.Size).FirstOrDefault(p => p.Id == id);
 
             return View(product);

@@ -96,17 +96,17 @@ namespace ColumbiaProject.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<int>("ProductTypeId")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("SalePrice")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("TypeId")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("TypeId");
+                    b.HasIndex("ProductTypeId");
 
                     b.ToTable("Products");
                 });
@@ -160,6 +160,24 @@ namespace ColumbiaProject.Migrations
                     b.ToTable("ProductSizes");
                 });
 
+            modelBuilder.Entity("ColumbiaProject.Models.ProductType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProductTypes");
+                });
+
             modelBuilder.Entity("ColumbiaProject.Models.Setting", b =>
                 {
                     b.Property<int>("Id")
@@ -198,24 +216,6 @@ namespace ColumbiaProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Sizes");
-                });
-
-            modelBuilder.Entity("ColumbiaProject.Models.Type", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Types");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -441,15 +441,15 @@ namespace ColumbiaProject.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ColumbiaProject.Models.Type", "Type")
+                    b.HasOne("ColumbiaProject.Models.ProductType", "ProductType")
                         .WithMany("Products")
-                        .HasForeignKey("TypeId")
+                        .HasForeignKey("ProductTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Category");
 
-                    b.Navigation("Type");
+                    b.Navigation("ProductType");
                 });
 
             modelBuilder.Entity("ColumbiaProject.Models.ProductImage", b =>
@@ -545,14 +545,14 @@ namespace ColumbiaProject.Migrations
                     b.Navigation("ProductSizes");
                 });
 
+            modelBuilder.Entity("ColumbiaProject.Models.ProductType", b =>
+                {
+                    b.Navigation("Products");
+                });
+
             modelBuilder.Entity("ColumbiaProject.Models.Size", b =>
                 {
                     b.Navigation("ProductSizes");
-                });
-
-            modelBuilder.Entity("ColumbiaProject.Models.Type", b =>
-                {
-                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

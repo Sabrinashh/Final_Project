@@ -8,6 +8,6 @@ namespace ColumbiaProject.Models
 
         [MaxLength(50)]
         public string Name { get; set; }
-        public List<Product> Products { get; set; }
+        public List<Product>? Products { get; set; }
     }
 }
