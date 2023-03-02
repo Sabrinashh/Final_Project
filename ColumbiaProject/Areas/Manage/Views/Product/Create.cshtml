@@ -1,0 +1,70 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<div class="container-fluid ms-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form asp-action="create" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label asp-for="Name">Name</label>
+                        <input asp-for="Name" class="form-control">
+                        <span class="text-danger" asp-validation-for="Name"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CategoryId">Category</label>
+                        <select asp-for="CategoryId" class="form-control"  asp-items="@(new SelectList(ViewBag.Categories,nameof(Category.Id),nameof(Category.Name)))">
+                          
+                        </select>
+                        <span class="text-danger" asp-validation-for="CategoryId"></span>
+
+                    </div>
+                      <div class="form-group">
+                        <label asp-for="ProductTypeId">Product Type</label>
+                        <select asp-for="ProductTypeId" class="form-control" asp-items="@(new SelectList(ViewBag.ProductTypes, nameof(ProductType.Id), nameof(ProductType.Name)))">
+                          
+                        </select>
+                        <span class="text-danger" asp-validation-for="ProductTypeId"></span>
+                    </div>
+                      <div class="form-group">
+                        <label asp-for="SizeIds">Sizes</label>
+                        <select asp-for="SizeIds" class="form-control" asp-items="@(new SelectList(ViewBag.Sizes,nameof(Size.Id),nameof(Size.Name)))">
+                        </select>
+                        <span class="text-danger" asp-validation-for="SizeIds"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SalePrice">SalePrice</label>
+                        <input asp-for="SalePrice" class="form-control">
+                        <span class="text-danger" asp-validation-for="SalePrice"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CostPrice">CostPrice</label>
+                        <input asp-for="CostPrice" class="form-control">
+                        <span class="text-danger" asp-validation-for="CostPrice"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DiscountPercent">DiscountPercent</label>
+                        <input asp-for="DiscountPercent" class="form-control">
+                        <span class="text-danger" asp-validation-for="DiscountPercent"></span>
+                    </div>
+
+                     <div class="form-group">
+                        <label asp-for="PosterFile">PosterFile</label>
+                        <input asp-for="PosterFile" class="form-control">
+                        <span class="text-danger" asp-validation-for="PosterFile"></span>
+                    </div>
+                       <div class="form-group">
+                        <label asp-for="ImageFiles">ImageFiles</label>
+                        <input asp-for="ImageFiles" class="form-control">
+                        <span class="text-danger" asp-validation-for="ImageFiles"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

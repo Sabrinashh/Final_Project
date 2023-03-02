@@ -79,8 +79,14 @@ namespace ColumbiaProject.Migrations
                     b.Property<decimal>("CostPrice")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<decimal>("DiscountPercent")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<bool>("IsNew")
                         .HasColumnType("bit");
@@ -90,6 +96,9 @@ namespace ColumbiaProject.Migrations
 
                     b.Property<bool>("IsSpecial")
                         .HasColumnType("bit");
+
+                    b.Property<DateTime>("ModifiedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -101,6 +110,9 @@ namespace ColumbiaProject.Migrations
 
                     b.Property<decimal>("SalePrice")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<bool>("StockStatus")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
