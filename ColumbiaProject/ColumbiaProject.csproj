@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Areas\Manage\Views\Order\" />
-    <Folder Include="Areas\Manage\Views\Setting\" />
   </ItemGroup>
 
   <ItemGroup>
