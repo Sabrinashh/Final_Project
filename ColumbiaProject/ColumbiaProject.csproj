@@ -9,7 +9,6 @@
   <ItemGroup>
     <Folder Include="Areas\Manage\Views\Order\" />
     <Folder Include="Areas\Manage\Views\Setting\" />
-    <Folder Include="Areas\Manage\Views\Size\" />
   </ItemGroup>
 
   <ItemGroup>
