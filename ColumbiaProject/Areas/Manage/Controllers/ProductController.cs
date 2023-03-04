@@ -29,7 +29,7 @@ namespace ColumbiaProject.Areas.Manage.Controllers
                 .Include(x => x.ProductImages);
 
 
-            var model = PaginatedList<Product>.Create(query, page, 5);
+            var model = PaginatedList<Product>.Create(query, page, 7);
             return View(model);
         }
         public IActionResult Create()

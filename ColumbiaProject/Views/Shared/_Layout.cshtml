@@ -2,6 +2,7 @@
 @using ColumbiaProject.Services
 @inject LayoutService layoutService
 @inject UserManager<AppUser> _usermanager
+@model ShopViewModel
 @{
     AppUser user = null;
     if (User.Identity.IsAuthenticated && User.IsInRole("Member"))
@@ -93,63 +94,54 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item ">
                             <div class="dropdown">
-                                <a class="nav-link text-white font-s dropbtn" href="#">Men</a>
+                                <a class="nav-link text-white font-s dropbtn" asp-controller="shop" asp-action="index">@Model.Categories[0].Name</a>
                                 <div class="dropdown-content">
-                                    <a href="product-shop.html">New Arrivals</a>
-                                    <a href="product-shop.html">Best Sellers</a>
-                                    <a href="product-shop.html">Featured</a>
-                                    <a href="product-shop.html">Jackets & Vest</a>
-                                    <a href="product-shop.html">Fleece</a>
-                                    <a href="product-shop.html">Shirts</a>
-                                    <a href="product-shop.html">BaseLayer</a>
-                                    <a href="product-shop.html">Pants & Shorts</a>
-                                    <a href="product-shop.html">Big & Tall</a>
+                                    @foreach (var item in Model.ProductTypes)
+                                    {
+                                         <a asp-controller="shop" asp-action="index">@item.Name</a>
+                                    }
+                                   
+                    
 
                                 </div>
                             </div>
                         </li>
                         <li class="nav-item ">
                             <div class="dropdown">
-                                <a class="nav-link text-white font-s dropbtn" href="#">Women</a>
+                                <a class="nav-link text-white font-s dropbtn" asp-controller="shop" asp-action="index">@Model.Categories[1].Name</a>
                                 <div class="dropdown-content">
-                                    <a href="product-shop.html">New Arrivals</a>
-                                    <a href="product-shop.html">Best Sellers</a>
-                                    <a href="product-shop.html">Featured</a>
-                                    <a href="product-shop.html">Jackets & Vest</a>
-                                    <a href="product-shop.html">Fleece</a>
-                                    <a href="product-shop.html">Tops</a>
-                                    <a href="product-shop.html">BaseLayer</a>
-                                    <a href="product-shop.html">Bottoms</a>
-                                    <a href="product-shop.html">Dresses</a>
+                                    @foreach (var item in Model.ProductTypes)
+                                    {
+                                         <a asp-controller="shop" asp-action="index">@item.Name</a>
+                                    }
+                                   
+                    
+
                                 </div>
                             </div>
                         </li>
                         <li class="nav-item ">
                             <div class="dropdown">
-                                <a class="nav-link text-white font-s dropbtn" href="#">Kids</a>
+                                <a class="nav-link text-white font-s dropbtn" asp-controller="shop" asp-action="index">@Model.Categories[2].Name</a>
                                 <div class="dropdown-content">
-                                    <a href="product-shop.html">New Arrivals</a>
-                                    <a href="product-shop.html">Best Sellers</a>
-                                    <a href="product-shop.html">Featured</a>
-                                    <a href="product-shop.html">Boys</a>
-                                    <a href="product-shop.html">Girls</a>
-                                    <a href="product-shop.html">Toddler & Baby</a>
-                                    <a href="product-shop.html">Jackets & Vest</a>
-                                    <a href="product-shop.html">Fleece</a>
-                                    <a href="product-shop.html">Tops</a>
+                                    @foreach (var item in Model.ProductTypes)
+                                    {
+                                        <a asp-controller="shop" asp-action="index">@item.Name</a>
+                                    }
+
+
+
                                 </div>
                             </div>
                         </li>
                         <li class="nav-item ">
                             <div class="dropdown">
-                                <a class="nav-link text-white font-s dropbtn" href="#">Footwear</a>
+                                <a class="nav-link text-white font-s dropbtn" asp-controller="shop" asp-action="index">Footwear</a>
                                 <div class="dropdown-content">
-                                    <a href="product-shop.html">New Arrivals</a>
-                                    <a href="product-shop.html">Best Sellers</a>
-                                    <a href="product-shop.html">Men's shoes</a>
-                                    <a href="product-shop.html">Women's shoes</a>
-                                    <a href="product-shop.html">Kids' shoes</a>
-                                    <a href="product-shop.html">Collections</a>
+                                    <a asp-controller="shop" asp-action="index">New Arrivals</a>
+                                    <a asp-controller="shop" asp-action="index">Men's shoes</a>
+                                    <a asp-controller="shop" asp-action="index">Women's shoes</a>
+                                    <a asp-controller="shop" asp-action="index">Kids' shoes</a>
                                 </div>
                             </div>
                         </li>
@@ -290,5 +282,6 @@
        <script src="~/assets/js/product-shop.js"></script>
         <script src="~/assets/js/profile.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    @RenderSection("Scripts",required:false);
 </body>
 </html>

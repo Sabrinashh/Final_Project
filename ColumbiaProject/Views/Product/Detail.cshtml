@@ -44,7 +44,14 @@
                 <span class="text-dark fw-light fs-6">Sale</span>
                 }
                 
-            <p class="mt-5 mb-3">Size:</p>
+          
+                    <p class="mt-5 mb-3">Size: </p>
+
+                @if(Model.ProductSizes.Count==0){
+                    <p class="fw-bold"> Standart </p>
+                    
+                }
+          
             <div class=" w-75 d-flex justify-content-between sizes ">
                 @foreach (var item in Model.ProductSizes)
                 {

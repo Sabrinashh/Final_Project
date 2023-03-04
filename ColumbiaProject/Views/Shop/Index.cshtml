@@ -1,4 +1,5 @@
-﻿<section class="container-fluid  mt-5">
+﻿@model ShopViewModel
+<section class="container-fluid  mt-5">
     <p class="h2 fw-bold ">New Arriwals</p>
     <div class="d-flex justify-content-between w-100 ">
     <div class="w-25 filter">  
@@ -13,18 +14,13 @@
                 <div class="accordion-body "> 
                     <div>
                         <form>
-                            <div>
-                              <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                              <label for="checkbox-1" class="checkbox-custom-label">Men's</label>
+                            @foreach (var item in Model.Categories)
+                            {
+                                   <div>
+                              <input  form="filter-form" id="checkbox-1" class="checkbox-custom" type="checkbox" name="categoryId" id="category-@item.Id" value="@item.Id" @(ViewBag.SelectedCategoryId==item.Id?"checked":"")>
+                              <label for="checkbox-1" class="checkbox-custom-label" for="category-@item.Id">@item.Name (@item.Products.Count)</label>
                             </div>
-                            <div>
-                                <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                                <label for="checkbox-1" class="checkbox-custom-label">Women's</label>
-                              </div>
-                              <div>
-                                <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                                <label for="checkbox-1" class="checkbox-custom-label">Kids'</label>
-                              </div>
+                            }
                         </form>
                       </div>
                 </div>
@@ -39,52 +35,17 @@
               <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
                     <div>
-                        <form>
-                          <div class="form-group">
-                            <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                                <label for="checkbox-1" class="checkbox-custom-label">Jackets</label>
-                          </div>
+                        <form >
+                            @foreach (var item in Model.ProductTypes)
+                            {
+                                   <div>
+                                            <input form="filter-form" id="checkbox-1" class="checkbox-custom" type="checkbox" name="productTypeId" id="productType-@item.Id" value="@item.Id" @(ViewBag.SelectedProductTypeId==item.Id?"checked":"")>
+                              <label for="checkbox-1" class="checkbox-custom-label" for="productType-@item.Id">@item.Name (@item.Products.Count)</label>
+                            </div>
+                            }
+                         
 
-                          <div class="form-group">
-                            <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                                <label for="checkbox-1" class="checkbox-custom-label">Vests</label>
-                          </div>
-                          <div class="form-group">
-                            <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                            <label for="checkbox-1" class="checkbox-custom-label">Shirts</label>
-                          </div>
-                          <div class="form-group">
-                            <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                                <label for="checkbox-1" class="checkbox-custom-label">Pants</label>
-                          </div>
-                          <div class="form-group">
-                            <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                            <label for="checkbox-1" class="checkbox-custom-label">Shorts</label>
-                          </div>
-                          <div class="form-group">
-                            <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                            <label for="checkbox-1" class="checkbox-custom-label">Dresses</label>
-                          </div>
-                          <div class="form-group">
-                            <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                            <label for="checkbox-1" class="checkbox-custom-label">Skirts</label>
-                          </div>
-                          <div class="form-group">
-                            <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                            <label for="checkbox-1" class="checkbox-custom-label">Footwear</label>
-                          </div>
-                          <div class="form-group">
-                            <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                            <label for="checkbox-1" class="checkbox-custom-label">Headwear</label>
-                          </div>
-                          <div class="form-group">
-                            <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                                <label for="checkbox-1" class="checkbox-custom-label">Accessories</label>
-                          </div>
-                          <div class="form-group">
-                            <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                            <label for="checkbox-1" class="checkbox-custom-label">Backpacks & Bags</label>
-                          </div>
+             
                         </form>
                       </div>
                 </div>
@@ -99,63 +60,17 @@
               <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
                     <div class=" w-100 d-flex justify-content-evenly flex-wrap ">
-                        <div class="size-box border border-dark text-center pt-1 mb-2"><a href="#" class="fw-bold text-decoration-none text-dark">XS</a></div>
-                        <div class="size-box border border-dark text-center pt-1 mb-2 "><a href="#" class="fw-bold text-decoration-none text-dark">S</a></div>
-                        <div class="size-box border border-dark text-center pt-1 mb-2 "><a href="#" class="fw-bold text-decoration-none text-dark">M</a></div>
-                        <div class="size-box border border-dark text-center pt-1 mb-2 "><a href="#" class="fw-bold text-decoration-none text-dark">L</a></div>
-                        <div class="size-box border border-dark text-center pt-1 mb-2 "><a href="#" class="fw-bold text-decoration-none text-dark">XL</a></div>
-                        <div class="size-box border border-dark text-center pt-1 mb-2  "><a href="#" class="fw-bold text-decoration-none text-dark">XXL</a></div>
-                        <div class="size-box border border-dark text-center pt-1 mb-2 "><a href="#" class="fw-bold text-decoration-none text-dark">3XL</a></div>
-                        <div class="size-box border border-dark text-center pt-1 mb-2  "><a href="#" class="fw-bold text-decoration-none text-dark">4XL</a></div>
-                        <div class="size-box border border-dark text-center pt-1 mb-2 "><a href="#" class="fw-bold text-decoration-none text-dark">36</a></div>
-                        <div class="size-box border border-dark text-center pt-1 mb-2 "><a href="#" class="fw-bold text-decoration-none text-dark">37</a></div>
-                        <div class="size-box border border-dark text-center pt-1 mb-2 "><a href="#" class="fw-bold text-decoration-none text-dark">38</a></div>
-                        <div class="size-box border border-dark text-center pt-1 mb-2 "><a href="#" class="fw-bold text-decoration-none text-dark">39</a></div>
-                        <div class="size-box border border-dark text-center pt-1 mb-2 "><a href="#" class="fw-bold text-decoration-none text-dark">40</a></div>
-                        <div class="size-box border border-dark text-center pt-1 mb-2  "><a href="#" class="fw-bold text-decoration-none text-dark">41</a></div>
-                        <div class="size-box border border-dark text-center pt-1 mb-2 "><a href="#" class="fw-bold text-decoration-none text-dark">42</a></div>
-                        <div class="size-box border border-dark text-center pt-1 mb-2 "><a href="#" class="fw-bold text-decoration-none text-dark">43</a></div>
-                        <div class="size-box border border-dark text-center pt-1 mb-2 "><a href="#" class="fw-bold text-decoration-none text-dark">44</a></div>
+                        @foreach (var item in Model.Sizes)
+                        {
+                              <div class="size-box border border-dark text-center pt-1 mb-2"><a href="#" class="fw-bold text-decoration-none text-dark">@item.Name</a></div>
+                        }
+                      
+                       
 
                         </div>
                 </div>
               </div>
             </div>
-            <div class="accordion-item border-bottom border-dark">
-                <h2 class="accordion-header" id="headingTwo">
-                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  Benefit
-                  </button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <div>
-                        <form>
-                          <div class="form-group">
-                            <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                            <label for="checkbox-1" class="checkbox-custom-label">Water proof</label>
-                          </div>
-                          <div class="form-group">
-                            <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                            <label for="checkbox-1" class="checkbox-custom-label">Water Resistant</label>
-                          </div>
-                          <div class="form-group">
-                            <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                            <label for="checkbox-1" class="checkbox-custom-label">Warmth</label>
-                          </div>
-                          <div class="form-group">
-                            <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                                <label for="checkbox-1" class="checkbox-custom-label">Sun Protection</label>
-                          </div>
-                          <div class="form-group">
-                       <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                                <label for="checkbox-1" class="checkbox-custom-label">Cooling</label>
-                          </div>
-                        </form>
-                      </div>
-                  </div>
-                </div>
-              </div>
               <div class="accordion-item border-bottom border-dark ">
                 <h2 class="accordion-header" id="headingThree">
                   <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -185,9 +100,16 @@
                   </div>
                 </div>
               </div> 
+
           </div>
+               <div class="mt-5">
+                        <form id="filter-form" method="get">
+                            <button type="submit" class="sidebar-title w-100">Filter</button>
+                        </form>
+                        </div>
     </div>
     <div class="w-75 products ">
+       @* Mobile Filter*@
       <div class="collapse" id="navbarToggleExternalContent">
         <div class="w-100 ">  
           <div class="accordion accordion-flush mt-5 " id="accordionFlushExample">
@@ -394,60 +316,58 @@
           </button>
         </div>
       </nav>
-        <div class="dropdown mb-5 ms-5">
-            <a class="btn border border-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-              Sort By
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <li><a class="dropdown-item" href="#">Price:High to Low</a></li>
-                <li><a class="dropdown-item" href="#">Price:Low to High</a></li>
-                <li><a class="dropdown-item" href="#">Newest</a></li>
-                <li><a class="dropdown-item" href="#">Featured</a></li>
-              </ul>
+     @* Mobile Filter Finish*@
+            <div class="sorting-selection w-25 mb-5 ms-4 ">
+                <span class="fw-bold">Sort By:</span>
+                <select onchange="this.form.submit()" form="filter-form" name="sort" class="form-control nice-select sort-select mr-0 bg-dark text-white">
+                    <option value="" selected="selected">Default Sorting</option>
+                    <option value="AToZ">
+
+                        Name (A to Z)
+                    </option>
+                    <option value="ZToA">
+                       Name (Z to A)
+                    </option>
+                    <option value="LowToHigh">
+                       Price (Low to High)
+                    </option>
+                    <option value="HighToLow">
+                 Price (High to Low)
+                    </option>
+                </select>
             </div>
             <div class="w-100 d-flex justify-content-around flex-wrap">
-        <div class="card" style="width: 15rem;">
-            <a href="detail.html"><img src="~/assets/img/Infinity Insulated Parka(product1).webp" class="card-img-top" alt="..."></a>
-            <div class="card-body">
-              <h6 class="card-title">Women's Little Si™ Omni-Heat™ Infinity Insulated Parka</h6>
-              <p class="card-text text-danger">$171.91 <del class="text-dark">$230.00</del></p>
-            </div>
-          </div>
-          <div class="card" style="width: 15rem;">
-            <a href="detail.html"><img src="~/assets/img/Infinity Insulated Parka(product1).webp" class="card-img-top" alt="..."></a>
-            <div class="card-body">
-              <h6 class="card-title">Women's Little Si™ Omni-Heat™ Infinity Insulated Parka</h6>
-              <p class="card-text text-danger">$171.91 <del class="text-dark">$230.00</del></p>
-            </div>
-          </div>
-          <div class="card " style="width: 15rem;">
-            <a href="detail.html"><img src="~/assets/img/Infinity Insulated Parka(product1).webp" class="card-img-top" alt="..."></a>
-            <div class="card-body">
-              <h6 class="card-title">Women's Little Si™ Omni-Heat™ Infinity Insulated Parka</h6>
-              <p class="card-text text-danger">$171.91 <del class="text-dark">$230.00</del></p>
-            </div>
-          </div>
-          <div class="card mt-3" style="width: 15rem;">
-            <a href="detail.html"><img src="~/assets/img/Infinity Insulated Parka(product1).webp" class="card-img-top" alt="..."></a>
-            <div class="card-body">
-              <h6 class="card-title">Women's Little Si™ Omni-Heat™ Infinity Insulated Parka</h6>
-              <p class="card-text text-danger">$171.91 <del class="text-dark">$230.00</del></p>
-            </div>
-          </div>
-          <div class="card mt-3" style="width: 15rem;">
-            <a href="detail.html"><img src="~/assets/img/Infinity Insulated Parka(product1).webp" class="card-img-top" alt="..."></a>
-            <div class="card-body">
-              <h6 class="card-title">Women's Little Si™ Omni-Heat™ Infinity Insulated Parka</h6>
-              <p class="card-text text-danger">$171.91 <del class="text-dark">$230.00</del></p>
-            </div>
-          </div>
-          <div class="card mt-3" style="width: 15rem;">
-            <a href="detail.html"><img src="~/assets/img/Infinity Insulated Parka(product1).webp" class="card-img-top" alt="..."></a>
-            <div class="card-body">
-              <h6 class="card-title">Women's Little Si™ Omni-Heat™ Infinity Insulated Parka</h6>
-              <p class="card-text text-danger">$171.91 <del class="text-dark">$230.00</del></p>
-            </div>
-          </div>
+                @foreach (var item in Model.Products)
+                {
+                    <div class="card mb-3" style="width: 16rem;">
+                        <div class="position-absolute bg-dark text-white w-20 feature-div text-center p-1 ms-1">
+
+                            @if (item.IsNew == true)
+                            {
+                                <p class="m-auto">New</p>
+                            }
+                            @if (item.DiscountPercent > 0)
+                            {
+                                <p class="m-auto text-danger">Sale</p>
+                            }
+
+                        </div>
+                        <a asp-controller="product" asp-action="detail" asp-route-id="@item.Id"><img src="/assets/img/@item.ProductImages.FirstOrDefault(x=>x.PosterStatus==true).Name" class="card-img-top" alt="..."></a>
+                        <div class="card-body">
+                            <h6 class="card-title">@item.Name</h6>
+                            @if (item.DiscountPercent > 0)
+                            {
+                                <p class="card-text text-danger">$@((item.SalePrice * (100 - item.DiscountPercent) / 100).ToString("0.00")) <del class="text-dark">$@item.SalePrice</del></p>
+                            }
+                            else
+                            {
+                                <p class="card-text ">$@item.SalePrice</p>
+                            }
+                        </div>
+                    </div>
+                }
+       
+      
     </div>
     </div>
 </div>
@@ -598,3 +518,27 @@
     </button>
   </div>
 </section>
+@section Scripts{
+    <script>
+        $(document).ready(function(){
+             $(function() {
+            $(".sb-range-slider").slider({
+                range: true,
+                min: @Model.MinPrice,
+                max: @Model.MaxPrice,
+                values: [@ViewBag.SelectedMinPrice, @ViewBag.SelectedMaxPrice],
+                slide: function (event, ui) {
+                    $("#amount").val("£" + ui.values[0] + " - £" + ui.values[1]);
+                },
+                change: function (event, ui) {
+                    $("#minPriceInput").val(ui.values[0]);
+                    $("#maxPriceInput").val(ui.values[1]);
+                }
+            });
+            $("#amount").val("£" + $(".sb-range-slider").slider("values", 0) +
+                " - £" + $(".sb-range-slider").slider("values", 1));
+        });
+        })
+          
+
+    </script>}
