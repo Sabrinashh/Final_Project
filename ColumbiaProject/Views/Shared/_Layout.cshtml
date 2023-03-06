@@ -2,7 +2,6 @@
 @using ColumbiaProject.Services
 @inject LayoutService layoutService
 @inject UserManager<AppUser> _usermanager
-@model ShopViewModel
 @{
     AppUser user = null;
     if (User.Identity.IsAuthenticated && User.IsInRole("Member"))
@@ -94,13 +93,16 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item ">
                             <div class="dropdown">
-                                <a class="nav-link text-white font-s dropbtn" asp-controller="shop" asp-action="index">@Model.Categories[0].Name</a>
+                                <a class="nav-link text-white font-s dropbtn" asp-controller="shop" asp-action="index">Men</a>
                                 <div class="dropdown-content">
-                                    @foreach (var item in Model.ProductTypes)
-                                    {
-                                         <a asp-controller="shop" asp-action="index">@item.Name</a>
-                                    }
-                                   
+                                          <a asp-controller="shop" asp-action="index">Jackets</a>
+                                     <a asp-controller="shop" asp-action="index">Vests</a>
+                                    <a asp-controller="shop" asp-action="index">Shirts</a>
+                                     <a asp-controller="shop" asp-action="index">Pants</a>
+                                      <a asp-controller="shop" asp-action="index">Shorts</a>
+                                         <a asp-controller="shop" asp-action="index">Footwear</a>
+                                         <a asp-controller="shop" asp-action="index">Headwear</a>
+                                    <a asp-controller="shop" asp-action="index">Backpacks & Bags </a>
                     
 
                                 </div>
@@ -108,26 +110,39 @@
                         </li>
                         <li class="nav-item ">
                             <div class="dropdown">
-                                <a class="nav-link text-white font-s dropbtn" asp-controller="shop" asp-action="index">@Model.Categories[1].Name</a>
+                                <a class="nav-link text-white font-s dropbtn" asp-controller="shop" asp-action="index">Women</a>
                                 <div class="dropdown-content">
-                                    @foreach (var item in Model.ProductTypes)
-                                    {
-                                         <a asp-controller="shop" asp-action="index">@item.Name</a>
-                                    }
-                                   
-                    
+
+                                    <a asp-controller="shop" asp-action="index">Jackets</a>
+                                    <a asp-controller="shop" asp-action="index">Shirts</a>
+                                    <a asp-controller="shop" asp-action="index">Pants</a>
+                                    <a asp-controller="shop" asp-action="index">Shorts</a>
+                                    <a asp-controller="shop" asp-action="index">Dresses</a>
+                                    <a asp-controller="shop" asp-action="index">Skirts</a>
+                                    <a asp-controller="shop" asp-action="index">Footwear</a>
+                                    <a asp-controller="shop" asp-action="index">Headwear</a>
+                                    <a asp-controller="shop" asp-action="index">Backpacks & Bags </a>
+
+
+
 
                                 </div>
                             </div>
                         </li>
                         <li class="nav-item ">
                             <div class="dropdown">
-                                <a class="nav-link text-white font-s dropbtn" asp-controller="shop" asp-action="index">@Model.Categories[2].Name</a>
+                                <a class="nav-link text-white font-s dropbtn" asp-controller="shop" asp-action="index">Kids</a>
                                 <div class="dropdown-content">
-                                    @foreach (var item in Model.ProductTypes)
-                                    {
-                                        <a asp-controller="shop" asp-action="index">@item.Name</a>
-                                    }
+
+                                    <a asp-controller="shop" asp-action="index">Jackets</a>
+                                    <a asp-controller="shop" asp-action="index">Shirts</a>
+                                     <a asp-controller="shop" asp-action="index">Pants</a>
+                                      <a asp-controller="shop" asp-action="index">Shorts</a>
+                                       <a asp-controller="shop" asp-action="index">Dresses</a>
+                                        <a asp-controller="shop" asp-action="index">Skirts</a>
+                                         <a asp-controller="shop" asp-action="index">Headwear</a>
+
+                                    
 
 
 

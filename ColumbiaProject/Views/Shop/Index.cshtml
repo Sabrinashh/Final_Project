@@ -1,6 +1,6 @@
 ﻿@model ShopViewModel
 <section class="container-fluid  mt-5">
-    <p class="h2 fw-bold ">New Arriwals</p>
+    <p class="h2 fw-bold ">Products</p>
     <div class="d-flex justify-content-between w-100 ">
     <div class="w-25 filter">  
         <div class="accordion accordion-flush mt-5 " id="accordionFlushExample">
@@ -17,7 +17,7 @@
                             @foreach (var item in Model.Categories)
                             {
                                    <div>
-                              <input  form="filter-form" id="checkbox-1" class="checkbox-custom" type="checkbox" name="categoryId" id="category-@item.Id" value="@item.Id" @(ViewBag.SelectedCategoryId==item.Id?"checked":"")>
+                              <input  form="filter-form" id="checkbox-1" class="checkbox-custom" type="checkbox" name="categoryIds" id="category-@item.Id" value="@item.Id" @(ViewBag.SelectedCategoryId.Contains(item.Id)?"checked":"")>
                               <label for="checkbox-1" class="checkbox-custom-label" for="category-@item.Id">@item.Name (@item.Products.Count)</label>
                             </div>
                             }
@@ -39,7 +39,7 @@
                             @foreach (var item in Model.ProductTypes)
                             {
                                    <div>
-                                            <input form="filter-form" id="checkbox-1" class="checkbox-custom" type="checkbox" name="productTypeId" id="productType-@item.Id" value="@item.Id" @(ViewBag.SelectedProductTypeId==item.Id?"checked":"")>
+                              <input form="filter-form" id="checkbox-1" class="checkbox-custom" type="checkbox" name="productTypeIds" id="productType-@item.Id" value="@item.Id"  @(ViewBag.SelectedProductTypeId.Contains(item.Id)?"checked":"")>
                               <label for="checkbox-1" class="checkbox-custom-label" for="productType-@item.Id">@item.Name (@item.Products.Count)</label>
                             </div>
                             }
@@ -59,15 +59,18 @@
               </h2>
               <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
-                    <div class=" w-100 d-flex justify-content-evenly flex-wrap ">
-                        @foreach (var item in Model.Sizes)
-                        {
-                              <div class="size-box border border-dark text-center pt-1 mb-2"><a href="#" class="fw-bold text-decoration-none text-dark">@item.Name</a></div>
-                        }
+                    
+                           @foreach (var item in Model.Sizes)
+                           {
+                               <div>
+                              <input form="filter-form" id="checkbox-1" class="checkbox-custom" type="checkbox" name="sizeIds" id="size-@item.Id" value="@item.Id"  @(ViewBag.SelectedSizeId.Contains(item.Id)?"checked":"")>
+                              <label for="checkbox-1" class="checkbox-custom-label" for="productType-@item.Id">@item.Name</label>
+                               </div>
+                           }
                       
                        
 
-                        </div>
+                      
                 </div>
               </div>
             </div>
@@ -82,19 +85,11 @@
                     <form action="#">
                         <p class="fst-italic">
                           <input type="radio" id="test1" name="radio-group" checked>
-                          <label for="test1">Under $50</label>
-                        </p>
-                        <p class="fst-italic">
-                          <input type="radio" id="test2" name="radio-group">
-                          <label for="test2">Under $100</label>
-                        </p>
-                        <p class="fst-italic">
-                          <input type="radio" id="test3" name="radio-group">
-                          <label for="test3">Under $150</label>
+                          <label for="test1">Under $100</label>
                         </p>
                         <p class="fst-italic">
                             <input type="radio" id="test4" name="radio-group">
-                            <label for="test4">Over $150</label>
+                            <label for="test4">Over $100</label>
                           </p>
                       </form>
                   </div>
@@ -371,7 +366,6 @@
     </div>
     </div>
 </div>
-<button type="button" class="btn border load-more">Load More</button>
 </section>
 <section class="container mt-5 pt-5 ">
   <h5 class="mb-5">You May Also Like</h5>

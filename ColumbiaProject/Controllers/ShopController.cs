@@ -3,6 +3,8 @@ using ColumbiaProject.Models;
 using ColumbiaProject.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace ColumbiaProject.Controllers
 {
@@ -15,20 +17,22 @@ namespace ColumbiaProject.Controllers
             _context = context;
         }
        
-            public IActionResult Index(int page = 1, int? categoryId = null, int? productTypeId = null, List<int> sizeIds = null, decimal? minPrice = null, decimal? maxPrice = null, string sort = "AtoZ")
+            public IActionResult Index(int page = 1, List<int>? categoryIds = null, List<int>? productTypeIds = null, List<int> sizeIds = null, decimal? minPrice = null, decimal? maxPrice = null, string sort = "AtoZ")
             {
-                ViewBag.SelectedCategoryId = categoryId;
-                ViewBag.SelectedProductTypeId = productTypeId;
+                ViewBag.SelectedCategoryId = categoryIds;
+                ViewBag.SelectedProductTypeId = productTypeIds;
+            ViewBag.SelectedSizeId = sizeIds;   
 
 
                 var products = _context.Products.Include(x => x.Category).Include(x => x.ProductImages).AsQueryable();
-
-                if (categoryId != null)
-                    products = products.Where(x => x.CategoryId == categoryId);
-
-            if (productTypeId != null)
-                products = products.Where(x => x.ProductTypeId == productTypeId);
-
+            var productSizes = _context.ProductSizes.Include(x => x.Size).AsQueryable();
+            if (categoryIds != null && categoryIds.Count > 0)
+                products = products.Where(x => categoryIds.Contains(x.CategoryId));
+            if (productTypeIds != null && productTypeIds.Count > 0)
+                products = products.Where(x => productTypeIds.Contains(x.ProductTypeId));
+            if (sizeIds != null && sizeIds.Count > 0)
+                productSizes = productSizes.Where(x => sizeIds.Contains(x.SizeId));
+                    
 
 
 
@@ -59,7 +63,7 @@ namespace ColumbiaProject.Controllers
 
                 ShopViewModel model = new ShopViewModel
                 {
-                    Products = PaginatedList<Product>.Create(products, page, 6),
+                    Products = PaginatedList<Product>.Create(products, page, 12),
                     Categories = _context.Categories.Include(x => x.Products).Where(x => x.Products.Count > 0).ToList(),
                     ProductTypes = _context.ProductTypes.Include(x => x.Products).Where(x => x.Products.Count > 0).ToList(),
                     Sizes = _context.Sizes.ToList(),
