@@ -28,7 +28,12 @@ namespace ColumbiaProject.Controllers
             };
             return View(homeVM);
         }
+        public async Task<IActionResult> Search(string search)
+        {
+            List<Product> products = await _context.Products.Where(p => !p.IsDeleted && p.Name.ToLower().Contains(search.ToLower())).ToListAsync();
+            return PartialView("_SearchPartial", products);
 
+        }
 
     }
 }

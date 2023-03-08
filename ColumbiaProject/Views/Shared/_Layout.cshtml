@@ -9,6 +9,8 @@
         user = _usermanager.FindByNameAsync(User.Identity.Name).Result;
     }
     Dictionary<string, string> settings = layoutService.GetSettings();
+    List < Category > categories= layoutService.GetCategories();
+    BasketViewModel basket = layoutService.GetBasket();
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -62,7 +64,7 @@
                                 }
                             </li>
                             <li class="nav-item  ">
-                                <a class="nav-link" asp-controller="card" asp-action="index"><span class="text-danger">2</span><i class="las la-shopping-cart fs-3 hover-bg "></i></a>
+                                <a class="nav-link" asp-controller="card" asp-action="index"><span class="text-danger">@basket.Items.Count</span><i class="las la-shopping-cart fs-3 hover-bg "></i></a>
                             </li>
                         </ul>
                     </span>
@@ -93,24 +95,22 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item ">
                             <div class="dropdown">
-                                <a class="nav-link text-white font-s dropbtn" asp-controller="shop" asp-action="index">Men</a>
+                                <a class="nav-link text-white font-s dropbtn" asp-controller="shop" asp-action="index">@categories[0].Name</a>
                                 <div class="dropdown-content">
-                                          <a asp-controller="shop" asp-action="index">Jackets</a>
+                                     <a asp-controller="shop" asp-action="index">Jackets</a>
                                      <a asp-controller="shop" asp-action="index">Vests</a>
-                                    <a asp-controller="shop" asp-action="index">Shirts</a>
+                                     <a asp-controller="shop" asp-action="index">Shirts</a>
                                      <a asp-controller="shop" asp-action="index">Pants</a>
-                                      <a asp-controller="shop" asp-action="index">Shorts</a>
-                                         <a asp-controller="shop" asp-action="index">Footwear</a>
-                                         <a asp-controller="shop" asp-action="index">Headwear</a>
-                                    <a asp-controller="shop" asp-action="index">Backpacks & Bags </a>
-                    
-
+                                     <a asp-controller="shop" asp-action="index">Shorts</a>
+                                     <a asp-controller="shop" asp-action="index">Footwear</a>
+                                     <a asp-controller="shop" asp-action="index">Headwear</a>
+                                     <a asp-controller="shop" asp-action="index">Backpacks & Bags </a>
                                 </div>
                             </div>
                         </li>
                         <li class="nav-item ">
                             <div class="dropdown">
-                                <a class="nav-link text-white font-s dropbtn" asp-controller="shop" asp-action="index">Women</a>
+                                <a class="nav-link text-white font-s dropbtn" asp-controller="shop" asp-action="index">@categories[1].Name</a>
                                 <div class="dropdown-content">
 
                                     <a asp-controller="shop" asp-action="index">Jackets</a>
@@ -123,15 +123,12 @@
                                     <a asp-controller="shop" asp-action="index">Headwear</a>
                                     <a asp-controller="shop" asp-action="index">Backpacks & Bags </a>
 
-
-
-
                                 </div>
                             </div>
                         </li>
                         <li class="nav-item ">
                             <div class="dropdown">
-                                <a class="nav-link text-white font-s dropbtn" asp-controller="shop" asp-action="index">Kids</a>
+                                <a class="nav-link text-white font-s dropbtn" asp-controller="shop" asp-action="index">@categories[2].Name</a>
                                 <div class="dropdown-content">
 
                                     <a asp-controller="shop" asp-action="index">Jackets</a>
@@ -141,11 +138,6 @@
                                        <a asp-controller="shop" asp-action="index">Dresses</a>
                                         <a asp-controller="shop" asp-action="index">Skirts</a>
                                          <a asp-controller="shop" asp-action="index">Headwear</a>
-
-                                    
-
-
-
                                 </div>
                             </div>
                         </li>
@@ -297,6 +289,6 @@
        <script src="~/assets/js/product-shop.js"></script>
         <script src="~/assets/js/profile.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    @RenderSection("Scripts",required:false);
+    @RenderSection("Scripts",required:false)
 </body>
 </html>

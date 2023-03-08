@@ -11,7 +11,8 @@
           "MailKit": "3.5.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.14",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.14",
-          "Microsoft.EntityFrameworkCore.Tools": "6.0.14"
+          "Microsoft.EntityFrameworkCore.Tools": "6.0.14",
+          "Newtonsoft.Json": "13.0.2"
         },
         "runtime": {
           "ColumbiaProject.dll": {}
@@ -379,6 +380,14 @@
           "lib/net6.0/MimeKit.dll": {
             "assemblyVersion": "3.5.0.0",
             "fileVersion": "3.5.0.0"
+          }
+        }
+      },
+      "Newtonsoft.Json/13.0.2": {
+        "runtime": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.2.27524"
           }
         }
       },
@@ -795,6 +804,13 @@
       "sha512": "sha512-XHRxnUJjNC6ufN94Yixp0QaLAZL+4L3huwzBhG5grBn68FQo3lH24gHKl15ceK4ktsALTqxdKPc/iMbQ442CGA==",
       "path": "mimekit/3.5.0",
       "hashPath": "mimekit.3.5.0.nupkg.sha512"
+    },
+    "Newtonsoft.Json/13.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-R2pZ3B0UjeyHShm9vG+Tu0EBb2lC8b0dFzV9gVn50ofHXh9Smjk6kTn7A/FdAsC8B5cKib1OnGYOXxRBz5XQDg==",
+      "path": "newtonsoft.json/13.0.2",
+      "hashPath": "newtonsoft.json.13.0.2.nupkg.sha512"
     },
     "Portable.BouncyCastle/1.9.0": {
       "type": "package",

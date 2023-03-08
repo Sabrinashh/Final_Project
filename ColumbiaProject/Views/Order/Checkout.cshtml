@@ -1,95 +1,26 @@
-﻿<header class="mt-5 container-fluid">
+﻿  @model CheckoutViewModel
+
+
+<header class="mt-5 container-fluid">
     <h2 class="mb-5">Checkout</h2>
 </header>
 <main>
     <section class="checkout-form container">
-        <form action="#!" method="get">
-            <h6>Contact information</h6>
-            <div class="form-control">
-                <label for="checkout-email">E-mail</label>
-                <div>
-
-                    <input type="email" id="checkout-email" name="checkout-email" placeholder="Enter your email...">
-                </div>
-            </div>
-            <div class="form-control">
-                <label for="checkout-phone">Phone</label>
-                <div>
-                    <input type="tel" name="checkout-phone" id="checkout-phone" placeholder="Enter you phone...">
-                </div>
-            </div>
-            <br>
-            <h6>Shipping address</h6>
-            <div class="form-control">
-                <label for="checkout-name">Full name</label>
-                <div>
-                    <input type="text" id="checkout-name" name="checkout-name" placeholder="Enter you name...">
-                </div>
-            </div>
-            <div class="form-control">
-                <label for="checkout-address">Address</label>
-                <div>
-                    <input type="text" name="checkout-address" id="checkout-address" placeholder="Your address...">
-                </div>
-            </div>
-            <div class="form-control">
-                <label for="checkout-city">City</label>
-                <div>
-                    <input type="text" name="checkout-city" id="checkout-city" placeholder="Your city...">
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="form-control">
-                    <label for="checkout-country">Country</label>
-                    <div>
-                        <input type="text" name="checkout-country" id="checkout-country" placeholder="Your country..." list="country-list">
-                        <datalist id="country-list">
-                            <option value="Azerbaijan"></option>
-                            <option value="Turkey"></option>
-                            <option value="France"></option>
-                            <option value="Italy"></option>
-                            <option value="Spain"></option>
-                            <option value="India"></option>
-                            <option value="USA"></option>
-                            <option value="Russia"></option>
-                            <option value="Japan"></option>
-                            <option value="Egypt"></option>
-                        </datalist>
-                    </div>
-                </div>
-                <div class="form-control">
-                    <label for="checkout-postal">Zip code</label>
-                    <div>
-                        <input type="numeric" name="checkout-postal" id="checkout-postal" placeholder="Your postal code...">
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-control-btn ">
-                <button class="bg-dark">Continue</button>
-            </div>
-        </form>
+        @await Html.PartialAsync("_CheckoutFormPartial",Model.Order)
     </section>
 
     <section class="checkout-details">
         <div class="checkout-details-inner">
             <div class="checkout-lists">
-                <div class="card">
-                    <div class="card-image"><img src="~/assets/img/Down Hooded Jacket(product3).webp" alt=""></div>
-                    <div class="card-details">
-                        <div class="card-name">Down Hooded</div>
-                        <div class="card-price text-danger">$99.91 <del class="text-dark">$130</del></div>
-
+                @foreach (var item in Model.CheckoutItems)
+                {
+                    <div class="card">
+                        <div class="card-details">
+                            <div class="card-name"> @item.Count x @item.Name</div>
+                            <div class="card-price text-danger">$@item.TotalPrice.ToString("0.00")</div>
+                        </div>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="card-image"><img src="~/assets/img/Infinity Insulated Parka(product1).webp" alt=""></div>
-                    <div class="card-details">
-                        <div class="card-name">Infinity Insulated Parka</div>
-                        <div class="card-price text-danger">$74.99 <del class="text-dark">$124.99</del></div>
-
-                    </div>
-                </div>
+                }
             </div>
             <div class="checkout-shipping">
                 <h5>Shipping</h5>
@@ -97,9 +28,13 @@
             </div>
             <div class="checkout-total">
                 <h5>Total</h5>
-                <p>$194</p>
+                <p>$@((Model.Total + 19).ToString("0.00"))</p>
             </div>
         </div>
     </section>
 
 </main>
+
+@section Scripts{
+    @Html.Partial("_ValidationScriptsPartial");
+}

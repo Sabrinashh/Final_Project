@@ -1,4 +1,5 @@
 ﻿@model ShopViewModel
+
 <section class="container-fluid  mt-5">
     <p class="h2 fw-bold ">Products</p>
     <div class="d-flex justify-content-between w-100 ">
@@ -38,14 +39,11 @@
                         <form >
                             @foreach (var item in Model.ProductTypes)
                             {
-                                   <div>
+                            <div>
                               <input form="filter-form" id="checkbox-1" class="checkbox-custom" type="checkbox" name="productTypeIds" id="productType-@item.Id" value="@item.Id"  @(ViewBag.SelectedProductTypeId.Contains(item.Id)?"checked":"")>
                               <label for="checkbox-1" class="checkbox-custom-label" for="productType-@item.Id">@item.Name (@item.Products.Count)</label>
                             </div>
                             }
-                         
-
-             
                         </form>
                       </div>
                 </div>
@@ -67,9 +65,6 @@
                               <label for="checkbox-1" class="checkbox-custom-label" for="productType-@item.Id">@item.Name</label>
                                </div>
                            }
-                      
-                       
-
                       
                 </div>
               </div>
@@ -101,211 +96,109 @@
                         <form id="filter-form" method="get">
                             <button type="submit" class="sidebar-title w-100">Filter</button>
                         </form>
-                        </div>
+               </div>
     </div>
     <div class="w-75 products ">
        @* Mobile Filter*@
       <div class="collapse" id="navbarToggleExternalContent">
-        <div class="w-100 ">  
-          <div class="accordion accordion-flush mt-5 " id="accordionFlushExample">
-              <div class="accordion-item border-top border-bottom border-dark">
-                <h2 class="accordion-header" id="flush-headingOne">
-                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                  Gender
-                  </button>
-                </h2>
-                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body "> 
-                      <div>
-                          <form>
-                              <div>
-                                <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                                <label for="checkbox-1" class="checkbox-custom-label">Men's</label>
-                              </div>
-                              <div>
-                                  <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                                  <label for="checkbox-1" class="checkbox-custom-label">Women's</label>
+        <div class="w-100 ">
+                    <div class="accordion accordion-flush mt-5 " id="accordionFlushExample">
+                        <div class="accordion-item border-top border-bottom border-dark">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    Gender
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body ">
+                                    <div>
+                                        <form>
+                                            @foreach (var item in Model.Categories)
+                                            {
+                                                <div>
+                                                    <input form="filter-form" id="checkbox-1" class="checkbox-custom" type="checkbox" name="categoryIds" id="category-@item.Id" value="@item.Id" @(ViewBag.SelectedCategoryId.Contains(item.Id)?"checked":"")>
+                                                    <label for="checkbox-1" class="checkbox-custom-label" for="category-@item.Id">@item.Name (@item.Products.Count)</label>
+                                                </div>
+                                            }
+                                        </form>
+                                    </div>
                                 </div>
-                                <div>
-                                  <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                                  <label for="checkbox-1" class="checkbox-custom-label">Boys'</label>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-bottom border-dark">
+                            <h2 class="accordion-header" id="flush-headingTwo">
+                                <button class="accordion-button collapsed fw-bold type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                    Product Type
+                                </button>
+                            </h2>
+                            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div>
+                                        <form>
+                                            @foreach (var item in Model.ProductTypes)
+                                            {
+                                                <div>
+                                                    <input form="filter-form" id="checkbox-1" class="checkbox-custom" type="checkbox" name="productTypeIds" id="productType-@item.Id" value="@item.Id" @(ViewBag.SelectedProductTypeId.Contains(item.Id)?"checked":"")>
+                                                    <label for="checkbox-1" class="checkbox-custom-label" for="productType-@item.Id">@item.Name (@item.Products.Count)</label>
+                                                </div>
+                                            }
+                                        </form>
+                                    </div>
                                 </div>
-                                <div>
-                                  <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                                  <label for="checkbox-1" class="checkbox-custom-label">Girls'</label>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-bottom border-dark">
+                            <h2 class="accordion-header" id="flush-headingThree">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                    Size
+                                </button>
+                            </h2>
+                            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+
+                                    @foreach (var item in Model.Sizes)
+                                    {
+                                        <div>
+                                            <input form="filter-form" id="checkbox-1" class="checkbox-custom" type="checkbox" name="sizeIds" id="size-@item.Id" value="@item.Id" @(ViewBag.SelectedSizeId.Contains(item.Id)?"checked":"")>
+                                            <label for="checkbox-1" class="checkbox-custom-label" for="productType-@item.Id">@item.Name</label>
+                                        </div>
+                                    }
+
                                 </div>
-                          </form>
+                            </div>
                         </div>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item border-bottom border-dark">
-                <h2 class="accordion-header" id="flush-headingTwo">
-                  <button class="accordion-button collapsed fw-bold type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                Product Type
-                  </button>
-                </h2>
-                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">
-                      <div>
-                          <form>
-                            <div class="form-group">
-                              <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                                  <label for="checkbox-1" class="checkbox-custom-label">Jackets</label>
+                        <div class="accordion-item border-bottom border-dark ">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Price
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <form action="#">
+                                        <p class="fst-italic">
+                                            <input type="radio" id="test1" name="radio-group" checked>
+                                            <label for="test1">Under $100</label>
+                                        </p>
+                                        <p class="fst-italic">
+                                            <input type="radio" id="test4" name="radio-group">
+                                            <label for="test4">Over $100</label>
+                                        </p>
+                                    </form>
+                                </div>
                             </div>
-                            <div class="form-group">
-                              <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                              <label for="checkbox-1" class="checkbox-custom-label">Fleece</label>
-                            </div>
-                            <div class="form-group">
-                              <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                                  <label for="checkbox-1" class="checkbox-custom-label">Insulated</label>
-                            </div>
-                            <div class="form-group">
-                              <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                                  <label for="checkbox-1" class="checkbox-custom-label">Vests</label>
-                            </div>
-                            <div class="form-group">
-                              <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                              <label for="checkbox-1" class="checkbox-custom-label">Shirts</label>
-                            </div>
-                            <div class="form-group">
-                              <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                                  <label for="checkbox-1" class="checkbox-custom-label">Pants</label>
-                            </div>
-                            <div class="form-group">
-                              <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                              <label for="checkbox-1" class="checkbox-custom-label">Shorts</label>
-                            </div>
-                            <div class="form-group">
-                              <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                              <label for="checkbox-1" class="checkbox-custom-label">Dresses</label>
-                            </div>
-                            <div class="form-group">
-                              <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                              <label for="checkbox-1" class="checkbox-custom-label">Skirts</label>
-                            </div>
-                            <div class="form-group">
-                              <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                              <label for="checkbox-1" class="checkbox-custom-label">Footwear</label>
-                            </div>
-                            <div class="form-group">
-                              <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                              <label for="checkbox-1" class="checkbox-custom-label">Headwear</label>
-                            </div>
-                            <div class="form-group">
-                              <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                                  <label for="checkbox-1" class="checkbox-custom-label">Accessories</label>
-                            </div>
-                            <div class="form-group">
-                              <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                              <label for="checkbox-1" class="checkbox-custom-label">Backpacks & Bags</label>
-                            </div>
-                          </form>
                         </div>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item border-bottom border-dark">
-                <h2 class="accordion-header" id="flush-headingThree">
-                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                  Size
-                  </button>
-                </h2>
-                <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">
-                      <div class=" w-100 d-flex justify-content-evenly flex-wrap ">
-                          <div class="size-box border border-dark text-center pt-1 mb-2"><a href="#" class="fw-bold text-decoration-none text-dark">XS</a></div>
-                          <div class="size-box border border-dark text-center pt-1 mb-2 "><a href="#" class="fw-bold text-decoration-none text-dark">S</a></div>
-                          <div class="size-box border border-dark text-center pt-1 mb-2 "><a href="#" class="fw-bold text-decoration-none text-dark">M</a></div>
-                          <div class="size-box border border-dark text-center pt-1 mb-2 "><a href="#" class="fw-bold text-decoration-none text-dark">L</a></div>
-                          <div class="size-box border border-dark text-center pt-1 mb-2 "><a href="#" class="fw-bold text-decoration-none text-dark">XL</a></div>
-                          <div class="size-box border border-dark text-center pt-1 mb-2  "><a href="#" class="fw-bold text-decoration-none text-dark">XXL</a></div>
-                          <div class="size-box border border-dark text-center pt-1 mb-2 "><a href="#" class="fw-bold text-decoration-none text-dark">3XL</a></div>
-                          <div class="size-box border border-dark text-center pt-1 mb-2  "><a href="#" class="fw-bold text-decoration-none text-dark">4XL</a></div>
-                          <div class="size-box border border-dark text-center pt-1 mb-2 "><a href="#" class="fw-bold text-decoration-none text-dark">36</a></div>
-                          <div class="size-box border border-dark text-center pt-1 mb-2 "><a href="#" class="fw-bold text-decoration-none text-dark">37</a></div>
-                          <div class="size-box border border-dark text-center pt-1 mb-2 "><a href="#" class="fw-bold text-decoration-none text-dark">38</a></div>
-                          <div class="size-box border border-dark text-center pt-1 mb-2 "><a href="#" class="fw-bold text-decoration-none text-dark">39</a></div>
-                          <div class="size-box border border-dark text-center pt-1 mb-2 "><a href="#" class="fw-bold text-decoration-none text-dark">40</a></div>
-                          <div class="size-box border border-dark text-center pt-1 mb-2  "><a href="#" class="fw-bold text-decoration-none text-dark">41</a></div>
-                          <div class="size-box border border-dark text-center pt-1 mb-2 "><a href="#" class="fw-bold text-decoration-none text-dark">42</a></div>
-                          <div class="size-box border border-dark text-center pt-1 mb-2 "><a href="#" class="fw-bold text-decoration-none text-dark">43</a></div>
-                          <div class="size-box border border-dark text-center pt-1 mb-2 "><a href="#" class="fw-bold text-decoration-none text-dark">44</a></div>
-  
-                          </div>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item border-bottom border-dark">
-                  <h2 class="accordion-header" id="headingTwo">
-                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Benefit
-                    </button>
-                  </h2>
-                  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      <div>
-                          <form>
-                            <div class="form-group">
-                              <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                              <label for="checkbox-1" class="checkbox-custom-label">Water proof</label>
-                            </div>
-                            <div class="form-group">
-                              <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                              <label for="checkbox-1" class="checkbox-custom-label">Water Resistant</label>
-                            </div>
-                            <div class="form-group">
-                              <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                              <label for="checkbox-1" class="checkbox-custom-label">Warmth</label>
-                            </div>
-                            <div class="form-group">
-                              <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                                  <label for="checkbox-1" class="checkbox-custom-label">Sun Protection</label>
-                            </div>
-                            <div class="form-group">
-                         <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
-                                  <label for="checkbox-1" class="checkbox-custom-label">Cooling</label>
-                            </div>
-                          </form>
-                        </div>
+
                     </div>
-                  </div>
-                </div>
-                <div class="accordion-item border-bottom border-dark ">
-                  <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                      Price
-                    </button>
-                  </h2>
-                  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      <form action="#">
-                          <p class="fst-italic">
-                            <input type="radio" id="test1" name="radio-group" checked>
-                            <label for="test1">Under $50</label>
-                          </p>
-                          <p class="fst-italic">
-                            <input type="radio" id="test2" name="radio-group">
-                            <label for="test2">Under $100</label>
-                          </p>
-                          <p class="fst-italic">
-                            <input type="radio" id="test3" name="radio-group">
-                            <label for="test3">Under $150</label>
-                          </p>
-                          <p class="fst-italic">
-                              <input type="radio" id="test4" name="radio-group">
-                              <label for="test4">Over $150</label>
-                            </p>
+                    <div class="mt-5 mb-5">
+                        <form id="filter-form" method="get">
+                            <button type="submit" class="sidebar-title w-100">Filter</button>
                         </form>
                     </div>
-                  </div>
-                </div> 
-            </div>
       </div>
       </div>
       <nav class="filter-mobile d-none navbar navbar-light bg-light w-25">
-        <div class="container-fluid">
+        <div class="container-fluid ms-2">
           <button class="navbar-toggler border-dark border" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="text-dark">Filter</span>
           </button>
@@ -317,7 +210,6 @@
                 <select onchange="this.form.submit()" form="filter-form" name="sort" class="form-control nice-select sort-select mr-0 bg-dark text-white">
                     <option value="" selected="selected">Default Sorting</option>
                     <option value="AToZ">
-
                         Name (A to Z)
                     </option>
                     <option value="ZToA">
@@ -361,8 +253,6 @@
                         </div>
                     </div>
                 }
-       
-      
     </div>
     </div>
 </div>
@@ -532,7 +422,4 @@
             $("#amount").val("£" + $(".sb-range-slider").slider("values", 0) +
                 " - £" + $(".sb-range-slider").slider("values", 1));
         });
-        })
-          
-
     </script>}

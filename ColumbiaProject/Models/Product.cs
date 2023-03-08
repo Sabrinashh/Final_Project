@@ -42,6 +42,7 @@ namespace ColumbiaProject.Models
         public List<int>? SizeIds { get; set; } = new List<int>();
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow.AddHours(4);
         public DateTime ModifiedAt { get; set; } = DateTime.UtcNow.AddHours(4);
+        public List<Review>? Reviews { get; set; }
      
 
     }

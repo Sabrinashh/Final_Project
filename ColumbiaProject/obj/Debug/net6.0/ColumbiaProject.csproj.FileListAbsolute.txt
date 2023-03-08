@@ -135,3 +135,4 @@ C:\Users\ReC\Desktop\ColumbiaProject\ColumbiaProject\obj\Debug\net6.0\ref\Columb
 C:\Users\ReC\Desktop\ColumbiaProject\ColumbiaProject\bin\Debug\net6.0\MailKit.dll
 C:\Users\ReC\Desktop\ColumbiaProject\ColumbiaProject\bin\Debug\net6.0\MimeKit.dll
 C:\Users\ReC\Desktop\ColumbiaProject\ColumbiaProject\bin\Debug\net6.0\BouncyCastle.Crypto.dll
+C:\Users\ReC\Desktop\ColumbiaProject\ColumbiaProject\bin\Debug\net6.0\Newtonsoft.Json.dll

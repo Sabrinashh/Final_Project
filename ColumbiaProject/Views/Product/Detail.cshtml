@@ -60,7 +60,7 @@
                
                
             </div>
-            <button class="btn btn-primary w-100 mt-4 fs-6">ADD TO CART</button>
+            <button class="btn btn-primary w-100 mt-3"><a asp-controller="product" asp-action="addtobasket" asp-route-productId="@Model.Id" class="text-decoration-none text-white">ADD TO CART</a></button>
             <div class="accordion accordion-flush mt-3" id="accordionFlushExample">
                 <div class="accordion-item border-top border-bottom border-dark">
                     <h2 class="accordion-header" id="flush-headingOne">

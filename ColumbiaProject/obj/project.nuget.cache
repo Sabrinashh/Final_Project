@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "7Huj/YDfNNgKSQEPTglZjPMGMJsW1+0u4bv5440bLNC4RL8XCi1wX5w0M/b5auBfFwQSBL4nu9V+r25+JB9K7Q==",
+  "dgSpecHash": "dRslztbfkIBCBzkxygGI4oaw7yF6CSc24Z4QeJgE8QgfN1GiFNGSIsIqqzW5oDm7epe44GeNO0bsbGXwDq6jUQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\ReC\\Desktop\\ColumbiaProject\\ColumbiaProject\\ColumbiaProject.csproj",
   "expectedPackageFiles": [
@@ -40,6 +40,7 @@
     "C:\\Users\\ReC\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\ReC\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\ReC\\.nuget\\packages\\mimekit\\3.5.0\\mimekit.3.5.0.nupkg.sha512",
+    "C:\\Users\\ReC\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
     "C:\\Users\\ReC\\.nuget\\packages\\portable.bouncycastle\\1.9.0\\portable.bouncycastle.1.9.0.nupkg.sha512",
     "C:\\Users\\ReC\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\ReC\\.nuget\\packages\\system.configuration.configurationmanager\\4.7.0\\system.configuration.configurationmanager.4.7.0.nupkg.sha512",
