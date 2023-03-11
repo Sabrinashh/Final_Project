@@ -1,10 +1,12 @@
 ﻿using ColumbiaProject.DAL;
 using ColumbiaProject.Models;
 using ColumbiaProject.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using System.Data;
 
 namespace ColumbiaProject.Controllers
 {
@@ -19,13 +21,76 @@ namespace ColumbiaProject.Controllers
             _userManager = userManager;
         }
 
-        public IActionResult Detail(int id)
+        public async Task<IActionResult> DetailAsync(int id)
         {
             Product product=_context.Products.Include(x => x.Category)
-                .Include(x => x.ProductType).Include(x => x.ProductImages)
+                .Include(x => x.ProductType).Include(x => x.ProductImages).Include(x=>x.Reviews).ThenInclude(x=>x.AppUser)
                 .Include(x => x.ProductSizes).ThenInclude(x => x.Size).FirstOrDefault(p => p.Id == id);
 
-            return View(product);
+            if (product == null)
+            {
+                TempData["error"] = "Mehsul yoxdur";
+                return RedirectToAction("index", "home");
+            }
+
+            ProductDetailViewModel detailVM = new ProductDetailViewModel
+            {
+                Product = product,
+                ReviewVM = new ReviewCreateViewModel {ProductId = id },
+            };
+
+            if (User.Identity.IsAuthenticated)
+            {
+                AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+                if (user != null)
+                {
+                    detailVM.HasReview = product.Reviews.Any(x => x.AppUserId == user.Id);
+                }
+            }
+            return View(detailVM);   
+        }
+
+
+        [Authorize(Roles = "Member")]
+        [HttpPost]
+        public async Task<IActionResult> Review(ReviewCreateViewModel reviewVM)
+        {
+            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            Product product = await _context.Products
+              .Include(x => x.Category)
+              .Include(x => x.ProductType)
+              .Include(x => x.ProductImages)
+              .Include(x => x.Reviews).ThenInclude(x => x.AppUser)
+              .Include(x => x.ProductSizes).ThenInclude(x => x.Size)
+              .FirstOrDefaultAsync(x => x.Id == reviewVM.ProductId);
+
+            if (product == null)
+                return NotFound();
+
+            if (!ModelState.IsValid)
+            {
+                ProductDetailViewModel detailVM = new ProductDetailViewModel
+                {
+                    Product = product,
+                    ReviewVM = reviewVM,
+                    HasReview = product.Reviews.Any(x => x.AppUserId == user.Id)
+                };
+
+                return View("detail", detailVM);
+            }
+
+            Review newReview = new Review { 
+                Text = reviewVM.Text,
+                AppUserId = user.Id,
+                CreatedAt = DateTime.UtcNow.AddHours(4)
+            };
+
+            product.Reviews.Add(newReview);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("detail", new { id = product.Id });
         }
 
         public async Task<IActionResult> AddToBasket(int productId, int count = 1)

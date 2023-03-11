@@ -2,76 +2,84 @@
 
 <section class="container">
     <h2 class="mb-5 mt-5 ">Shopping Cart</h2>
-    <div class="d-flex  w-100 ">
-        <p class="fw-bold w-20">Item</p>
-        <div class="d-flex justify-content-evenly w-75 ms-3 nav-item ">
-            <p class="fw-bold">Price</p>
-            <p class="fw-bold">QTY</p>
-            <p class="fw-bold">Subtotal</p>
-            <p class="fw-bold">Order Summary</p>
+    @if(Model.Items.Count==0){
+        <h4 class="fst-italic mt-5 mb-5 text-center"> Your cart is empty</h4>
+    }
+    else{
+        <div class="d-flex  w-100 ">
+            <p class="fw-bold w-20">Item</p>
+            <div class="d-flex justify-content-evenly w-75 ms-3 nav-item ">
+                <p class="fw-bold">Price</p>
+                <p class="fw-bold">QTY</p>
+                <p class="fw-bold">Subtotal</p>
+                <p class="fw-bold">Order Summary</p>
+            </div>
         </div>
-    </div>
-    <hr class="w-100  me-5">
-    <div class="row align-items-start">
-        <div id="box" class="col-12 col-sm-8 items">
-            @foreach (var item in Model.Items)
-            {
-                <div class="cartItem row align-items-start">
-                    <div class="col-3 mb-2">
-                        <img class="w-100" src="~/assets/img/@item.Product.ProductImages.FirstOrDefault(x=>x.PosterStatus==true).Name" alt="art image">
-                    </div>
-                    <div class="col-3 mb-2">
-                        <h6 class="">@item.Product.Name</h6>
-                        <p class="pl-1 mb-0">Size: S</p>
-                        <a asp-controller="card" asp-action="delete" id="remove-btn" class="text-danger ">Remove</a>
-                    </div>
-                    <div class="col-2">
-                        <p id="cartItem1Price">$@((item.Product.SalePrice * (100 - item.Product.DiscountPercent) / 100).ToString("0.00"))</p>
-                    </div>
-                    <div class="col-2  ">
-                        <select class="p-1 border border-dark">
-                            <option>@item.Count</option>
+        <hr class="w-100  me-5">
+        <div class="row align-items-start">
+            <div id="box" class="col-12 col-sm-8 items">
+                @foreach (var item in Model.Items)
+                {
 
 
-                        </select>
+                    <div class="cartItem row align-items-start">
+                        <div class="col-3 mb-2">
+                            <img class="w-100" src="~/assets/img/@item.Product.ProductImages.FirstOrDefault(x=>x.PosterStatus==true).Name" alt="art image">
+                        </div>
+                        <div class="col-3 mb-2">
+                            <h6 class="">@item.Product.Name</h6>
+                            <p class="pl-1 mb-0">Size: S</p>
+                            <a asp-controller="card" asp-action="delete"  id="remove-btn" class="text-danger ">Remove</a>
+                        </div>
+                        <div class="col-2">
+                            <p id="cartItem1Price">$@((item.Product.SalePrice * (100 - item.Product.DiscountPercent) / 100).ToString("0.00"))</p>
+                        </div>
+                        <div class="col-2  ">
+                            <select class="p-1 border border-dark">
+                                <option>@item.Count</option>
+                            </select>
+                        </div>
+                        <div class="col-2">
+                            <p id="cartItem1Price">@item.Count x $@((item.Product.SalePrice * (100 - item.Product.DiscountPercent) / 100).ToString("0.00"))</p>
+                        </div>
                     </div>
-                    <div class="col-2">
-                        <p id="cartItem1Price">@item.Count x $@((item.Product.SalePrice * (100 - item.Product.DiscountPercent) / 100).ToString("0.00"))</p>
+                    <hr>
+                }
+
+
+
+
+            </div>
+            <div class="col-12 col-sm-4 p-3  form border-dark border">
+                <div class="row m-0">
+                    <div class="col-sm-8 p-0">
+                        <h6>Subtotal</h6>
+                    </div>
+                    <div class="col-sm-4 p-0">
+                        <p id="subtotal">$@Model.TotalPrice.ToString("0.00")</p>
+                    </div>
+                </div>
+                <div class="row m-0">
+                    <div class="col-sm-8 p-0 ">
+                        <h6>Shipping</h6>
+                    </div>
+                    <div class="col-sm-4 p-0">
+                        <p id="tax">$19</p>
                     </div>
                 </div>
                 <hr>
-            }
-
-
+                <div class="row mx-0 mb-2">
+                    <div class="col-sm-8 p-0 d-inline">
+                        <h5>Total</h5>
+                    </div>
+                    <div class="col-sm-4 p-0">
+                        <p id="total">$@((Model.TotalPrice + 19).ToString("0.00"))</p>
+                    </div>
+                </div>
+                <a asp-controller="order" asp-action="checkout"><button id="btn-checkout" class="shopnow"><span>Guest Checkout</span></button></a>
+            </div>
         </div>
-        <div class="col-12 col-sm-4 p-3  form border-dark border">
-            <div class="row m-0">
-                <div class="col-sm-8 p-0">
-                    <h6>Subtotal</h6>
-                </div>
-                <div class="col-sm-4 p-0">
-                    <p id="subtotal">$@Model.TotalPrice.ToString("0.00")</p>
-                </div>
-            </div>
-            <div class="row m-0">
-                <div class="col-sm-8 p-0 ">
-                    <h6>Shipping</h6>
-                </div>
-                <div class="col-sm-4 p-0">
-                    <p id="tax">$19</p>
-                </div>
-            </div>
-            <hr>
-            <div class="row mx-0 mb-2">
-                <div class="col-sm-8 p-0 d-inline">
-                    <h5>Total</h5>
-                </div>
-                <div class="col-sm-4 p-0">
-                    <p id="total">$@((Model.TotalPrice + 19).ToString("0.00"))</p>
-                </div>
-            </div>
-            <a asp-controller="order" asp-action="checkout"><button id="btn-checkout" class="shopnow"><span>Guest Checkout</span></button></a>
-        </div>
-    </div>
+    }
+
 
     </section>

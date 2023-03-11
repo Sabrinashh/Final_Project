@@ -31,6 +31,7 @@ namespace ColumbiaProject.Controllers
         {
             if (!ModelState.IsValid)
             {
+                
                 var model = await _getCheckoutVM();
                 model.Order = order;
 
@@ -65,7 +66,7 @@ namespace ColumbiaProject.Controllers
             _context.Orders.Add(order);
 
             _context.SaveChanges();
-            
+
             return RedirectToAction("index", "home");
         }
 
@@ -98,7 +99,7 @@ namespace ColumbiaProject.Controllers
                 Name = b.Product.Name,
                 TotalPrice = (b.Product.SalePrice * (100 - b.Product.DiscountPercent) / 100) * b.Count
             }).ToList();
-           
+
 
             model.Total = model.CheckoutItems.Sum(x => x.TotalPrice);
 
@@ -139,5 +140,8 @@ namespace ColumbiaProject.Controllers
 
             return basketItems;
         }
+
+
+ 
     }
 }

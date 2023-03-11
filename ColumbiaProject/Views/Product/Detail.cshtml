@@ -1,9 +1,9 @@
-﻿@model Product
+﻿@model ProductDetailViewModel
 <section class="container pt-2 mt-5  ">
     <div class=" detail d-flex justify-content-evenly w-100 flex-wrap">
         <div class="w-49 slide">
             <div class="container w-75">
-                @foreach (var item in Model.ProductImages)
+                @foreach (var item in Model.Product.ProductImages)
                 {
                      <div class="mySlides ">
                     <img src="~/assets/img/@item.Name" style="width:100%">
@@ -13,7 +13,7 @@
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
                 <div class="row mt-3 ">
-                    @foreach (var item in Model.ProductImages)
+                    @foreach (var item in Model.Product.ProductImages)
                     {
                         <div class="column">
                             <img class="demo cursor" src="~/assets/img/@item.Name" style="width:100%" onclick="currentSlide(1)">
@@ -25,21 +25,21 @@
             </div>
         </div>
         <div class="w-45 ms-5 details">
-            <h4 class="fw-bold">@Model.Name</h4>
-            @if (Model.DiscountPercent > 0)
+            <h4 class="fw-bold">@Model.Product.Name</h4>
+            @if (Model.Product.DiscountPercent > 0)
             {
-                <p class="card-text text-danger">$@((Model.SalePrice * (100 - Model.DiscountPercent) / 100).ToString("0.00")) <del class="text-dark">$@Model.SalePrice</del></p>
+                <p class="card-text text-danger">$@((Model.Product.SalePrice * (100 - Model.Product.DiscountPercent) / 100).ToString("0.00")) <del class="text-dark">$@Model.Product.SalePrice</del></p>
             }
             else
             {
-                <p class="card-text">$@Model.SalePrice</p>
+                <p class="card-text">$@Model.Product.SalePrice</p>
             }
             <i class="las la-tags text-danger fs-4"></i>
-                @if (Model.IsNew == true)
+                @if (Model.Product.IsNew == true)
                 {
                    <span class="text-dark fw-light fs-6">New</span>
                 }
-                @if (Model.DiscountPercent > 0)
+                @if (Model.Product.DiscountPercent > 0)
                 {
                 <span class="text-dark fw-light fs-6">Sale</span>
                 }
@@ -47,20 +47,20 @@
           
                     <p class="mt-5 mb-3">Size: </p>
 
-                @if(Model.ProductSizes.Count==0){
+                @if(Model.Product.ProductSizes.Count==0){
                     <p class="fw-bold"> Standart </p>
                     
                 }
           
             <div class=" w-75 d-flex justify-content-between sizes ">
-                @foreach (var item in Model.ProductSizes)
+                @foreach (var item in Model.Product.ProductSizes)
                 {
                      <div class="size-box border border-dark text-center pt-1 "><a href="#" class="fw-bold text-decoration-none text-dark disable">@item.Size.Name</a></div>
                 }
                
                
             </div>
-            <button class="btn btn-primary w-100 mt-3"><a asp-controller="product" asp-action="addtobasket" asp-route-productId="@Model.Id" class="text-decoration-none text-white">ADD TO CART</a></button>
+            <button class="btn btn-primary w-100 mt-3"><a asp-controller="product" asp-action="addtobasket" asp-route-productId="@Model.Product.Id" class="text-decoration-none text-white">ADD TO CART</a></button>
             <div class="accordion accordion-flush mt-3" id="accordionFlushExample">
                 <div class="accordion-item border-top border-bottom border-dark">
                     <h2 class="accordion-header" id="flush-headingOne">
@@ -118,55 +118,22 @@
         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
             <div class="accordion-body">
                 <div class="container">
-                    <form id="review-form" action="index.html" method="post">
-                        <h2>Write Your Review</h2>
-                      @*  <div class="star-rating">
-                            <input type="radio" id="5-stars" name="rating" value="5" />
-                            <label for="5-stars" class="star">&#9733;</label>
-                            <input type="radio" id="4-stars" name="rating" value="4" />
-                            <label for="4-stars" class="star">&#9733;</label>
-                            <input type="radio" id="3-stars" name="rating" value="3" />
-                            <label for="3-stars" class="star">&#9733;</label>
-                            <input type="radio" id="2-stars" name="rating" value="2" />
-                            <label for="2-stars" class="star">&#9733;</label>
-                            <input type="radio" id="1-star" name="rating" value="1" />
-                            <label for="1-star" class="star">&#9733;</label>
-                        </div>*@
-                        <div class="form-group">
-                            <label class="control-label" for="review">Your Review:</label>
-                            <textarea class="form-control" rows="10" placeholder="Your Reivew" name="review" id="review"></textarea>
-                        </div>
-                        <h2>Your Info:</h2>
-                        <div class="form-group">
-                            <label for="name">Name:</label>
-                            <input class="form-control" type="text" placeholder="Name" name="name" id="name" value="">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email:</label>
-                            <input class="form-control" type="text" placeholder="Email" name="email" id="email" value="">
-                        </div>
-                        <a href="#" id="submit" class="btn btn-primary">Submit</a>
-                        <input id="submitForm" type="submit" style="display:none;">
-                    </form>
-                    <h4 class="pt-5">Read other reviews :</h4>
+                    @await Html.PartialAsync("_ReviewFormPartial",Model.ReviewVM)
+                    <h4 class="pt-5">Reviews: </h4>
                     <div id="review-container">
                         <div class="container">
-                            <div class="main_reviews-container">
+                            @foreach (var item in Model.Product.Reviews)
+                            {
+                               <div class="main_reviews-container">
                                 <div class=" py-3 my-2  rounded reviews_inner container">
                                     <div class="accordian-link d-flex align-items-center pointer py-2 ">
-                                        <img src="https://source.unsplash.com/random/2200x1200/?person" class="img-fluid user_image"> <h6 class="reveiew_user_name ps-3">Sabrina Shukurova</h6>
+                                        <img src="https://source.unsplash.com/random/2200x1200/?person" class="img-fluid user_image"><h6 class="reveiew_user_name ps-3">@item.AppUser.Fullname</h6>
                                     </div>
-                                    <p class="review_answer">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                                    <p class="review_answer">@item.Text</p>
                                 </div>
                             </div>
-                            <div class="main_reviews-container">
-                                <div class=" py-3 my-2  rounded reviews_inner container">
-                                    <div class="accordian-link d-flex align-items-center pointer py-2 ">
-                                        <img src="https://source.unsplash.com/random/2200x1200/?person" class="img-fluid user_image"> <h6 class="reveiew_user_name ps-3">Leyla Ceferli</h6>
-                                    </div>
-                                    <p class="review_answer">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                                </div>
-                            </div>
+                            }
+                       
                         </div>
                     </div>
                 </div>

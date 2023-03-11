@@ -135,9 +135,6 @@ namespace ColumbiaProject.Migrations
                     b.Property<DateTime>("ModifiedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Phone")
-                        .HasColumnType("int");
-
                     b.Property<byte>("Status")
                         .HasColumnType("tinyint");
 
@@ -713,7 +710,7 @@ namespace ColumbiaProject.Migrations
                         .IsRequired();
 
                     b.HasOne("ColumbiaProject.Models.Product", "Product")
-                        .WithMany()
+                        .WithMany("Reviews")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -789,6 +786,8 @@ namespace ColumbiaProject.Migrations
                     b.Navigation("ProductImages");
 
                     b.Navigation("ProductSizes");
+
+                    b.Navigation("Reviews");
                 });
 
             modelBuilder.Entity("ColumbiaProject.Models.ProductType", b =>

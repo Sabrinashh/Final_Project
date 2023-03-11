@@ -8,7 +8,6 @@ namespace ColumbiaProject.Models
         public string? AppUserId { get; set; }
         [MaxLength(25)]
         public string Fullname { get; set; }
-        public int Phone { get; set; }
         [MaxLength(100)]
         public string Email { get; set; }
         [MaxLength(250)]

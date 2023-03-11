@@ -1,3 +1,6 @@
+
+
+
 /*
 Template Name: Material Pro Admin
 Author: Themedesigner
@@ -78,10 +81,9 @@ $(function() {
         bindto: '#visitor',
         data: {
             columns: [
-                ['Other', 30],
-                ['Desktop', 10],
-                ['Tablet', 40],
-                ['Mobile', 50],
+                ['Kids', 10],
+                ['Women', 40],
+                ['Men', 50],
             ],
 
             type: 'donut',
@@ -93,7 +95,7 @@ $(function() {
             label: {
                 show: false
             },
-            title: "Our visitor",
+            title: "Categories",
             width: 20,
 
         },

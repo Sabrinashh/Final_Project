@@ -71,23 +71,8 @@ namespace ColumbiaProject.Controllers
                     basket.TotalPrice += item.Count * (itemVM.Product.SalePrice * (100 - itemVM.Product.DiscountPercent) / 100);
                 }
             }
-
-
-
             return View(basket);
         }
-
-        public IActionResult Delete(int id)
-        {
-            BasketItem basketItem = _context.BasketItems.Include(x=>x.Product).FirstOrDefault(x => x.ProductId == id);
-            _context.BasketItems.Remove(basketItem);
-            _context.SaveChanges();
-
-
-            return RedirectToAction("index");
-        }
-
-
 
     }
 }
