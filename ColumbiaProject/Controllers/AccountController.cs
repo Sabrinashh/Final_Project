@@ -5,12 +5,10 @@ using MailKit.Security;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using MimeKit;
-using MimeKit.Text;
-using MailKit.Net.Smtp;
-using System.Data;
+using System.Net;
 using System.Net.Mail;
-using SmtpClient = MailKit.Net.Smtp.SmtpClient;
+using System.Data;
+
 
 namespace ColumbiaProject.Controllers
 {
@@ -139,6 +137,7 @@ namespace ColumbiaProject.Controllers
                 Username = user.UserName,
                 Fullname = user.Fullname,
                 Email = user.Email,
+                Orders = _context.Orders.ToList()
             };
             return View(memberVM);
         }
@@ -209,23 +208,22 @@ namespace ColumbiaProject.Controllers
         {
             AppUser user = await _userManager.FindByEmailAsync(forgotPassword.Email);
 
-            if (user == null) return NotFound();
+            if (user == null) 
+              return NotFound();
 
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
 
             var url = Url.Action("verifypasswordreset", "account", new { email = user.Email, token = token }, Request.Scheme);
-
-            var email = new MimeMessage();
-            email.From.Add(MailboxAddress.Parse("raquel90@ethereal.email"));
-            email.To.Add(MailboxAddress.Parse("raquel90@ethereal.email"));
-            email.Subject = "Reset your password!";
-            email.Body = new TextPart(TextFormat.Html) { Text = $"<h1>Hi,{user.Fullname}, please click <a href=\"{url}\">here</a> to reset password! </h1>" };
-
-            using var smtp = new SmtpClient();
-            smtp.Connect("smtp.ethereal.email", 587, SecureSocketOptions.StartTls);
-            smtp.Authenticate("raquel90@ethereal.email", "DEGUZQ69cGt2zAt5kU");
-            smtp.Send(email);
-            smtp.Disconnect(true);
+            MailMessage message = new MailMessage();
+            message.From = new MailAddress("sukurovasabrina@gmail.com");
+            message.To.Add(new MailAddress(forgotPassword.Email));
+            message.Subject = "Password reset";
+            message.Body = $"Click '{url}'  to verify your email";
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+            smtpClient.UseDefaultCredentials = false;
+            smtpClient.Credentials = new NetworkCredential("sukurovasabrina@gmail.com", "vdkqiyubjrhrsfxo");
+            smtpClient.EnableSsl = true;
+            smtpClient.Send(message);
 
             //_userManager.GeneratePasswordResetTokenAsync();
             //_userManager.VerifyUserTokenAsync();

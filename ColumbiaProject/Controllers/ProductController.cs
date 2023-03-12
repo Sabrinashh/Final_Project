@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System.Data;
+using System.Security.Claims;
 
 namespace ColumbiaProject.Controllers
 {
@@ -92,6 +93,15 @@ namespace ColumbiaProject.Controllers
 
             return RedirectToAction("detail", new { id = product.Id });
         }
+
+        public IActionResult GetId()
+        {
+            var id = User.FindFirstValue(ClaimTypes.Name);
+
+            return Ok(id);
+        }
+
+
 
         public async Task<IActionResult> AddToBasket(int productId, int count = 1)
         {

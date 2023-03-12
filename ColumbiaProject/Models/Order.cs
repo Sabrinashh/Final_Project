@@ -18,6 +18,6 @@ namespace ColumbiaProject.Models
         public string ZipCode { get; set; }
         public OrderStatus Status { get; set; }
         public AppUser? AppUser { get; set; }
-        public List<OrderItem>?OrderItems { get; set; }
+        public List<OrderItem>? OrderItems { get; set; }
     }
 }

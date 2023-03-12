@@ -4,7 +4,7 @@
     <h2>Write Your Review</h2>
     <div class="form-group">
         <label asp-for="Text" class="control-label" for="review">Your Review:</label>
-        <textarea asp-for="Text" class="form-control" rows="10" name="review" id="review"></textarea>
+        <textarea asp-for="Text" class="form-control" rows="10" id="review"></textarea>
         <span class="text-danger" asp-validation-for="Text"></span>
     </div>
        <input  type="hidden" name="ProductId" value="@Model.ProductId"/>

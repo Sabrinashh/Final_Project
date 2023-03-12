@@ -1,32 +1,32 @@
 ﻿ @model Order
 
-<form id="order-form" method="post">
+<form id="order-form"  asp-action="checkout" method="post">
     <h6>Contact information</h6>
     <div class="form-control">
         <label asp-for="Email">E-mail</label>
-            <input asp-for="Email"  type="email" id="checkout-email" name="checkout-email" placeholder="Enter your email...">
+            <input asp-for="Email"  type="email" id="checkout-email"  placeholder="Enter your email...">
             <span class="text-danger" asp-validation-for="Email"></span>
     </div>
     <br>
     <h6>Shipping address</h6>
     <div class="form-control">
         <label asp-for="Fullname">Full name</label>
-            <input asp-for="Fullname" type="text" id="checkout-name" name="checkout-name" placeholder="Enter you name...">
+            <input asp-for="Fullname" type="text" id="checkout-name"  placeholder="Enter you name...">
             <span class="text-danger" asp-validation-for="Fullname"></span>
     </div>
     <div class="form-control">
         <label asp-for="Address">Address</label>
-            <input asp-for="Address" type="text" name="checkout-address" id="checkout-address" placeholder="Your address...">
+            <input asp-for="Address" type="text"  id="checkout-address" placeholder="Your address...">
             <span class="text-danger" asp-validation-for="Address"></span>
     </div>
     <div class="form-control">
         <label asp-for="City">City</label>
-            <input asp-for="City" type="text" name="checkout-city" id="checkout-city" placeholder="Your city...">
+            <input asp-for="City" type="text"  id="checkout-city" placeholder="Your city...">
             <span class="text-danger" asp-validation-for="City"></span>
     </div>
         <div class="form-control">
             <label asp-for="ZipCode">Zip code</label>
-                <input asp-for="ZipCode" type="numeric" name="checkout-postal" id="checkout-postal" placeholder="Your postal code...">
+                <input asp-for="ZipCode" type="numeric"  id="checkout-postal" placeholder="Your postal code...">
                 <span class="text-danger" asp-validation-for="ZipCode"></span>
         </div>
 

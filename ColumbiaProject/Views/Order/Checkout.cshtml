@@ -8,7 +8,6 @@
     <section class="checkout-form container">
         @await Html.PartialAsync("_CheckoutFormPartial",Model.Order)
     </section>
-
     <section class="checkout-details">
         <div class="checkout-details-inner">
             <div class="checkout-lists">
@@ -35,6 +34,6 @@
 
 </main>
 
-@section Scripts{
+@*@section Scripts{
     @Html.Partial("_ValidationScriptsPartial")
-};
+}*@

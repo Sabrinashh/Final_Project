@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "shtahnFYtmY3f+pJEa8W0fsNRDJsbsCVaxp2bgSuTH8=",
+  "Hash": "g8gxeLXIluFNiGlSbGLZPCoWIC6OQ+EBeJeIOt8VS5E=",
   "Source": "ColumbiaProject",
   "BasePath": "_content/ColumbiaProject",
   "Mode": "Default",
@@ -52802,6 +52802,23 @@
       "OriginalItemSpec": "wwwroot\\uploads\\products\\f7952b3d-d322-4cf8-8e9f-43628738c868home-4-slider-1.jpg"
     },
     {
+      "Identity": "C:\\Users\\ReC\\Desktop\\ColumbiaProject\\ColumbiaProject\\wwwroot\\uploads\\products\\f805b786-6132-42b9-a0f3-10b407f87dbfhome-slider-1-ai.png",
+      "SourceId": "ColumbiaProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ReC\\Desktop\\ColumbiaProject\\ColumbiaProject\\wwwroot\\",
+      "BasePath": "_content/ColumbiaProject",
+      "RelativePath": "uploads/products/f805b786-6132-42b9-a0f3-10b407f87dbfhome-slider-1-ai.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\products\\f805b786-6132-42b9-a0f3-10b407f87dbfhome-slider-1-ai.png"
+    },
+    {
       "Identity": "C:\\Users\\ReC\\Desktop\\ColumbiaProject\\ColumbiaProject\\wwwroot\\uploads\\products\\feature-1.webp",
       "SourceId": "ColumbiaProject",
       "SourceType": "Discovered",
@@ -52851,6 +52868,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\products\\feature-big.webp"
+    },
+    {
+      "Identity": "C:\\Users\\ReC\\Desktop\\ColumbiaProject\\ColumbiaProject\\wwwroot\\uploads\\products\\ffa89598-9219-4263-ac16-09f771fd66e4home-slider-2-ai.png",
+      "SourceId": "ColumbiaProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ReC\\Desktop\\ColumbiaProject\\ColumbiaProject\\wwwroot\\",
+      "BasePath": "_content/ColumbiaProject",
+      "RelativePath": "uploads/products/ffa89598-9219-4263-ac16-09f771fd66e4home-slider-2-ai.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\products\\ffa89598-9219-4263-ac16-09f771fd66e4home-slider-2-ai.png"
     },
     {
       "Identity": "C:\\Users\\ReC\\Desktop\\ColumbiaProject\\ColumbiaProject\\wwwroot\\uploads\\products\\Firecsmp Boot.webp",

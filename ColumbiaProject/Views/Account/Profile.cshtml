@@ -25,21 +25,19 @@
                 <p class="fw-bold "> Orders</p>
                 <p class="fw-bold "> Date</p>
                 <p class="fw-bold "> Status</p>
-                <p class="fw-bold "> Total</p>
             </div>
             <hr class="w-75  ms-3">
-            <div class="d-flex justify-content-between w-75  ms-3">
-                <p>1</p>
-                <p>Nov 23, 2022</p>
-                <p>Pending</p>
-                <p>$200</p>
-            </div>
-            <div class="d-flex justify-content-between w-75  ms-3">
-                <p>2</p>
-                <p>Nov 24, 2022</p>
-                <p>Pending</p>
-                <p>$100</p>
-            </div>
+
+            @foreach (var item in Model.Orders)
+            {
+                <div class="d-flex justify-content-between w-75  ms-3">
+                    <p>1</p>
+                    <p>@item.CreatedAt</p>
+                    <p class="text-danger">@item.Status</p>
+                </div>
+            }
+      
+
         </div>
         <div class="mt-3" id="account_info">
             <p class="h5 fw-bold pb-5 ms-3 ">My Profile</p>
@@ -82,3 +80,6 @@
     </div>
 
 </section>
+@section Scripts{
+    @Html.Partial("_ValidationScriptsPartial")
+}

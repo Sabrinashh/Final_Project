@@ -5,7 +5,7 @@
 
 <h1>Edit</h1>
 
-<div class="container">
+<div class="container ms-5 ps-5">
     <div class="row d-flex justify-content-center">
         <div class="col-md-8">
             <div class="card" style="width:100%;">
@@ -16,20 +16,20 @@
                         <h4>Email:@Model.Email </h4>
                         <h4>City: @Model.City</h4>
                         <h4>Zipcode: @Model.ZipCode</h4>
-                        <h4>Address1: @Model.Address</h4>
+                        <h4>Address: @Model.Address</h4>
                         <h4>Date: @Model.CreatedAt.ToString("dd-MM-yyyy HH:mm")</h4>
                     </p>
                 </div>
                 <ul class="list-group list-group-flush">
                     @foreach(var item in Model.OrderItems)
                     {
-                    <li class="list-group-item">@item.Name X @item.Count - SP:@item.SalePrice - DP:@item.DiscountPercent - CP: @item.CostPrice</li>
+                    <li class="list-group-item">@item.Name X @item.Count</li>
                     }
                 </ul>
-                <div class="card-body">
-                    <div class="row justify-content-end">
+                <div class="card-body ">
+                    <div class="row justify-content-end ">
                          <form method="post" asp-action="accept" asp-route-id="@Model.Id" >
-                        <button class="btn btn-primary" type="submit">Accept</button>
+                        <button class="btn btn-primary mb-2" type="submit">Accept</button>
                     </form>
                      <form method="post" asp-action="reject" asp-route-id="@Model.Id" >
                         <button class="btn btn-danger" type="submit">Reject</button>

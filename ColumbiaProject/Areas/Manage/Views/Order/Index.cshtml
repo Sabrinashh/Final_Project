@@ -46,7 +46,6 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">TrackId</th>
                                         <th scope="col">Fullname</th>
                                         <th scope="col">Email</th>
                                         <th scope="col">Item count</th>
@@ -62,13 +61,12 @@
                                         counter++;
                                         <tr>
                                             <th scope="row">@counter</th>
-                                            <td></td>
                                             <td>@item.Fullname</td>
                                             <td>@item.Email</td>
                                             <td>@item.OrderItems.Count</td>
                                             <td>@((item.OrderItems.Sum(x => (x.SalePrice * (100 - x.DiscountPercent) / 100) * x.Count)).ToString("0.00"))</td>
                                             <td>
-                                                <span class="badge badge-@(item.Status==OrderStatus.Accepted?"success":(item.Status==OrderStatus.Pending?"warning":"danger"))">@item.Status</span>
+                                                <span class="text-danger">@item.Status</span>
                                             </td>
                                             <td>
                                                 <a class="btn btn-info" asp-action="edit" asp-route-id="@item.Id">Edit</a>

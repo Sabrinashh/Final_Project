@@ -31,10 +31,8 @@ namespace ColumbiaProject.Controllers
         {
             if (!ModelState.IsValid)
             {
-                
                 var model = await _getCheckoutVM();
                 model.Order = order;
-
                 return View(model);
             }
 
@@ -125,14 +123,14 @@ namespace ColumbiaProject.Controllers
             List<BasketItem> basketItems = new List<BasketItem>();
             foreach (var item in baskeCookietItems)
             {
-                Product Product = _context.Products.FirstOrDefault(x => x.Id == item.ProductId && x.StockStatus);
-                if (Product == null) continue;
+                Product product = _context.Products.FirstOrDefault(x => x.Id == item.ProductId && x.StockStatus);
+                if (product == null) continue;
 
                 BasketItem basketItem = new BasketItem
                 {
                     Count = item.Count,
-                    ProductId = item.ProductId,
-                    Product = Product
+                   ProductId = item.ProductId,
+                    Product = product
                 };
 
                 basketItems.Add(basketItem);
@@ -140,8 +138,5 @@ namespace ColumbiaProject.Controllers
 
             return basketItems;
         }
-
-
- 
     }
 }
