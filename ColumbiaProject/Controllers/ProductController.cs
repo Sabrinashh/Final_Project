@@ -217,7 +217,7 @@ namespace ColumbiaProject.Controllers
 
 
 
-            return RedirectToAction("index", "card");
+            return RedirectToAction("index", "cart");
         }
 
 
@@ -229,5 +229,6 @@ namespace ColumbiaProject.Controllers
 
             return Ok(basket);
         }
+
     }
 }

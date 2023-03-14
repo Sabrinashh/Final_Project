@@ -1,4 +1,5 @@
 ﻿using ColumbiaProject.Models;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 
 namespace ColumbiaProject.ViewModels
 {
@@ -8,5 +9,6 @@ namespace ColumbiaProject.ViewModels
         public ReviewCreateViewModel ReviewVM { get; set; }
         public bool HasReview { get; set; }
         public List<Product> Products { get; set; }
+
     }
 }

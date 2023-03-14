@@ -1,4 +1,6 @@
-﻿namespace ColumbiaProject.ViewModels
+﻿using ColumbiaProject.Models;
+
+namespace ColumbiaProject.ViewModels
 {
     public class BasketViewModel
     {
