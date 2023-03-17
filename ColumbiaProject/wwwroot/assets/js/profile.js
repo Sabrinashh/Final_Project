@@ -8,9 +8,9 @@ let textAccount=document.getElementById("text_account");
 let textOrders=document.getElementById("text_orders")
 
 
-accountInfo.style.display="none";
-ordersBtn.style.backgroundColor=" rgb(58, 58, 58)";
-textOrders.style.color="white"
+orders.style.display="none";
+accountInfoBtn.style.backgroundColor=" rgb(58, 58, 58)";
+textAccount.style.color="white"
 
 accountInfoBtn.addEventListener("click",()=>{
 accountInfo.style.display="block";

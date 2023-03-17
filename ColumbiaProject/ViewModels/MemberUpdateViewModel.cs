@@ -21,6 +21,6 @@ namespace ColumbiaProject.ViewModels
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Passwords don't match")]
         public string?ConfirmPassword { get; set; }
-        public List<Order>? Orders { get; set; }
+        public List<Order>?  Orders { get; set; }
     }
 }

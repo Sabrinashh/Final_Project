@@ -9,5 +9,6 @@
         public DateTime CreatedDate { get; set; }
         public AppUser AppUser { get; set; }
         public Product Product { get; set; }
+
     }
 }

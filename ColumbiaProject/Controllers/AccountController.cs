@@ -9,7 +9,6 @@ using System.Net;
 using System.Net.Mail;
 using System.Data;
 
-
 namespace ColumbiaProject.Controllers
 {
     public class AccountController : Controller
@@ -17,6 +16,7 @@ namespace ColumbiaProject.Controllers
         private readonly ColumbiaDbContext _context;
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
+
 
         public AccountController(ColumbiaDbContext context, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
         {
@@ -146,6 +146,8 @@ namespace ColumbiaProject.Controllers
         [HttpPost]
         public async Task<IActionResult> Profile(MemberUpdateViewModel memberVM)
         {
+           
+                
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
 
             if (user == null)
