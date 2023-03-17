@@ -1,0 +1,36 @@
+﻿  @model MemberUpdateViewModel 
+
+<form asp-action="profile" method="post" class="w-75 ms-3">
+                <div class="mb-3">
+                    <div class="mb-3">
+                        <label asp-for="Username" class="form-label">User Name</label>
+                        <input type="name" class="form-control" id="exampleInputPassword1" asp-for="Username">
+                        <span class="text-danger" asp-validation-for="Username"></span>
+                    </div>
+                    <label asp-for="Email" class="form-label">Email address</label>
+                    <input asp-for="Email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <span class="text-danger" asp-validation-for="Email"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="CurrentPassword" class="form-label">Current Password</label>
+                    <input asp-for="CurrentPassword" type="password" class="form-control" id="exampleInputPassword1">
+                    <span class="text-danger" asp-validation-for="CurrentPassword"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Password" class="form-label">Change Password</label>
+                    <input asp-for="Password" type="password" class="form-control" id="exampleInputPassword1">
+                    <div class="form-text">Minimum of 8 characters 1 uppercase letter 1 lowercase letter 1 number</div>
+                    <span class="text-danger" asp-validation-for="Password"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="ConfirmPassword" class="form-label">Confirm Password</label>
+                    <input asp-for="ConfirmPassword" type="password" class="form-control" id="exampleInputPassword1">
+                    <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+                </div>
+
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                <div class="mb-3 w-100 text-center">
+                    <button type="submit" class="btn w-45 bg-dark text-white ">Save</button>
+                    <button type="submit" class="btn w-45 border border-dark">Cancel</button>
+                </div>
+            </form>

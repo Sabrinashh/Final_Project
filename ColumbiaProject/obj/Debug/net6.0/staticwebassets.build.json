@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "g8gxeLXIluFNiGlSbGLZPCoWIC6OQ+EBeJeIOt8VS5E=",
+  "Hash": "F6T0PMJwxxgl3mR314kOoDdxasjVJ97v2NZkN0iwrCA=",
   "Source": "ColumbiaProject",
   "BasePath": "_content/ColumbiaProject",
   "Mode": "Default",
@@ -36038,23 +36038,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\js\\product-shop.js"
-    },
-    {
-      "Identity": "C:\\Users\\ReC\\Desktop\\ColumbiaProject\\ColumbiaProject\\wwwroot\\assets\\js\\profile.js",
-      "SourceId": "ColumbiaProject",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ReC\\Desktop\\ColumbiaProject\\ColumbiaProject\\wwwroot\\",
-      "BasePath": "_content/ColumbiaProject",
-      "RelativePath": "assets/js/profile.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\js\\profile.js"
     },
     {
       "Identity": "C:\\Users\\ReC\\Desktop\\ColumbiaProject\\ColumbiaProject\\wwwroot\\assets\\scss\\cart.scss",
